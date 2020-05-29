@@ -37,6 +37,9 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-family: Nunito;
   }
+  body {
+    margin: 0
+    };
 `;
 
 const Header = styled.h2`
@@ -46,6 +49,7 @@ const Header = styled.h2`
   }
   font-weight: bold;
   text-align: center;
+  margin: 30px 0;
   color: ${(props) => props.color || 'inherit'};
 `;
 
@@ -58,7 +62,11 @@ const GradientHeader = styled(Header)`
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
+  display: block;
+  text-align: center;
+  ${forTabletPortraitUp} {
+    text-align: left;
+  }
 `;
 
 const Button = styled.a`
@@ -155,9 +163,7 @@ export default function Home() {
 
       <main>
         <SectionContainer>
-          <div style={{ width: '100%' }}>
-            <HeaderImage />
-          </div>
+          <HeaderImage />
           <Header>
             Help founders navigate the capital raising process simply
           </Header>
@@ -172,7 +178,7 @@ export default function Home() {
           <Button className='full-width-on-mobile'>Start fundraising</Button>
         </SectionContainer>
 
-        <SectionContainer>
+        <SectionContainer style={{ backgroundColor: '#e9eaec' }}>
           <GradientHeader
             gradientFrom='#00f091'
             gradientTo='#009efb'
@@ -188,7 +194,7 @@ export default function Home() {
           <p>Accelerate your investor discussions</p>
         </SectionContainer>
 
-        <SectionContainer>
+        <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
           <GradientHeader
             gradientFrom='#ff9b49'
             gradientTo='#ffc92b'
@@ -222,7 +228,11 @@ export default function Home() {
           </div>
         </SectionContainer>
 
-        <SectionContainer>
+        <SectionContainer
+          style={{
+            backgroundImage: 'linear-gradient(321deg, #ff9b49, #ffc92b)',
+          }}
+        >
           <h3>Get started on a 1 month free trial!</h3>
           <p>It is only ￡50/month* with no fixed contract.</p>
           <p>You can cancel anytime if it doesn't help you close your round!</p>
