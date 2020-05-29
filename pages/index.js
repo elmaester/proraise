@@ -1,11 +1,17 @@
 import Head from 'next/head';
 import styled, { createGlobalStyle } from 'styled-components';
+import HeaderImage from './../svg/header-image.svg';
 
 const forPhoneOnly = '@media (max-width: 599px)';
 const forTabletPortraitUp = '@media (min-width: 600px)';
 const forTabletLandscapeUp = '@media (min-width: 900px)';
 const forDesktopUp = '@media (min-width: 1200px)';
 const forBigDesktopUp = '@media (min-width: 1800px)';
+
+const MainColor = '#ff7702';
+const MainColorHover = '#e66b00';
+const secondaryColor = '#1f7be8';
+const secondaryColorHover = '#5e9fed';
 
 const whiteSpaceSidesMixin = `
   padding-left: 15px;
@@ -34,12 +40,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Header = styled.h2`
-  font-size: 36px;
+  font-size: 26px;
+  &.pseudologo {
+    font-size: 24px;
+  }
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  text-align: center;
   color: ${(props) => props.color || 'inherit'};
 `;
 
@@ -56,16 +62,23 @@ const GradientHeader = styled(Header)`
 `;
 
 const Button = styled.a`
-  padding: 14px 25px;
+  padding: 11px 15px;
   color: #fff;
-  background-color: #ff7702;
+  background-color: ${MainColor};
   border-radius: 5px;
   font-family: Nunito;
+  font-size: 14px;
   font-weight: bold;
   transition: 0.25s;
   cursor: pointer;
   &:hover {
-    background-color: #e66b00;
+    background-color: ${MainColorHover};
+  }
+  &.full-width-on-mobile {
+    ${forPhoneOnly} {
+      display: block;
+      text-align: center;
+    }
   }
 `;
 
@@ -78,21 +91,27 @@ const NavBar = styled.nav`
 `;
 
 const NavItem = styled.a`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   font-family: Nunito;
   transition: 0.25s;
   display: inline-block;
-  margin-right: 40px;
+  margin-right: 17px;
   cursor: pointer;
   &:hover {
-    color: #1f7be8;
+    color: ${secondaryColorHover};
   }
   &.hidden-on-mobile {
     display: none;
     ${forTabletLandscapeUp} {
       display: inline-block;
     }
+  }
+  &.login-button {
+    color: ${secondaryColor};
+  }
+  &:hover {
+    color: ${secondaryColorHover};
   }
 `;
 
@@ -118,31 +137,39 @@ export default function Home() {
       </Head>
 
       <NavBar>
-        <Header as='h1' color='#ff7702' style={{ fontWeight: '300' }}>
+        <Header
+          className='pseudologo'
+          as='h1'
+          color='#ff7702'
+          style={{ fontWeight: '300' }}
+        >
           ProRaise
         </Header>
         <div>
           <NavItem className='hidden-on-mobile'>Benefits</NavItem>
           <NavItem className='hidden-on-mobile'>Features</NavItem>
-          <NavItem>Login</NavItem>
+          <NavItem className='login-button'>Login</NavItem>
           <Button>Sign up</Button>
         </div>
       </NavBar>
 
       <main>
         <SectionContainer>
+          <div style={{ width: '100%' }}>
+            <HeaderImage />
+          </div>
           <Header>
             Help founders navigate the capital raising process simply
           </Header>
-          <p>
-            Scaling your business may need funding from investors. This can be a
-            time consuming and complex process.
-          </p>
-          <p>
+          <p style={{ textAlign: 'center' }}>
+            <span style={{ fontWeight: 'bold' }}>
+              Scaling your business may need funding from investors. This can be
+              a time consuming and complex process.
+            </span>{' '}
             ProRaise helps you run your fundraising more efficiently, saving you
             time.
           </p>
-          <Button>Start fundraising</Button>
+          <Button className='full-width-on-mobile'>Start fundraising</Button>
         </SectionContainer>
 
         <SectionContainer>
