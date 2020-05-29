@@ -57,13 +57,25 @@ const GlobalStyle = createGlobalStyle`
 const Header = styled.h2`
   font-size: 26px;
   &.pseudologo {
-    font-size: 24px;
+    ${forPhoneOnly} {
+      font-size: 24px;
+    }
+    ${forTabletPortraitUp} {
+      font-size: 34px;
+    }
     margin: 0;
   }
   font-weight: bold;
   text-align: center;
   margin: 30px 0;
   color: ${(props) => props.color || 'inherit'};
+`;
+
+const HeaderImageHolder = styled.div`
+  ${forTabletPortraitUp} {
+    width: calc(100% - 270px);
+    margin: auto;
+  }
 `;
 
 const GradientHeader = styled(Header)`
@@ -84,12 +96,24 @@ const GradientHeader = styled(Header)`
 `;
 
 const Button = styled.a`
-  padding: 11px 15px;
+  ${forPhoneOnly} {
+    padding: 11px 15px;
+    font-size: 14px;
+  }
+  ${forTabletPortraitUp} {
+    padding: 14px 25px;
+    font-size: 16px;
+    &.centered-button {
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
   color: #fff;
   background-color: ${mainColor};
   border-radius: 5px;
   font-family: Nunito;
-  font-size: 14px;
   font-weight: bold;
   transition: 0.25s;
   cursor: pointer;
@@ -104,7 +128,12 @@ const Button = styled.a`
   }
   &.free-trial-button {
     ${forPhoneOnly} {
-      margin: 30px 0;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    ${forTabletPortraitUp} {
+      margin-top: 40px;
+      margin-bottom: 40px;
     }
   }
 `;
@@ -118,15 +147,28 @@ const NavBar = styled.nav`
   ${forPhoneOnly} {
     margin-top: 10px;
   }
+  ${forTabletPortraitUp} {
+    margin-top: 15px;
+  }
 `;
 
 const NavItem = styled.a`
-  font-size: 14px;
+  ${forPhoneOnly} {
+    font-size: 14px;
+  }
+  ${forTabletPortraitUp} {
+    font-size: 16px;
+  }
   font-weight: bold;
   font-family: Nunito;
   transition: 0.25s;
   display: inline-block;
-  margin-right: 17px;
+  ${forPhoneOnly} {
+    margin-right: 17px;
+  }
+  ${forTabletPortraitUp} {
+    margin-right: 40px;
+  }
   cursor: pointer;
   &:hover {
     color: ${secondaryColorHover};
@@ -149,8 +191,14 @@ const MainContainer = styled.div``;
 
 const SectionContainer = styled.section`
   ${whiteSpaceSidesMixin}
-  padding-top: 30px;
-  padding-bottom: 30px;
+  ${forPhoneOnly} {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  ${forTabletPortraitUp} {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
   &.last-section {
     ${forPhoneOnly} {
       p {
@@ -263,7 +311,9 @@ export default function Home() {
         {/* HEADER SECTION */}
 
         <SectionContainer>
-          <HeaderImage />
+          <HeaderImageHolder>
+            <HeaderImage />
+          </HeaderImageHolder>
           <Header>
             Help founders navigate the capital raising process simply
           </Header>
@@ -281,7 +331,9 @@ export default function Home() {
             ProRaise helps you run your fundraising more efficiently, saving you
             time.
           </p>
-          <Button className='full-width-on-mobile'>Start fundraising</Button>
+          <Button className='full-width-on-mobile centered-button'>
+            Start fundraising
+          </Button>
         </SectionContainer>
 
         {/* BENEFITS SECTION */}
@@ -408,7 +460,7 @@ export default function Home() {
             It is only £50/month* with no fixed contract.
           </p>
           <p>You can cancel anytime if it doesn't help you close your round!</p>
-          <Button className='full-width-on-mobile free-trial-button'>
+          <Button className='full-width-on-mobile free-trial-button centered-button'>
             Start your 1-month free trial
           </Button>
           <p style={{ fontSize: '11px', marginBottom: '0' }}>*excl. VAT</p>
