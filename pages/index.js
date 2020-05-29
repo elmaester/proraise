@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import styled, { createGlobalStyle } from 'styled-components';
 import HeaderImage from './../svg/header-image.svg';
+import BenefitImage1 from './../svg/benefit-1.svg';
+import BenefitImage2 from './../svg/benefit-2.svg';
+import BenefitImage3 from './../svg/benefit-3.svg';
 
 const forPhoneOnly = '@media (max-width: 599px)';
 const forTabletPortraitUp = '@media (min-width: 600px)';
@@ -64,6 +67,7 @@ const GradientHeader = styled(Header)`
   -webkit-text-fill-color: transparent;
   display: block;
   text-align: center;
+  margin-top: 0;
   ${forTabletPortraitUp} {
     text-align: left;
   }
@@ -131,6 +135,35 @@ const SectionContainer = styled.section`
   padding-bottom: 30px;
 `;
 
+const BenefitContainer = styled.div`
+  border-radius: 10px;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.14);
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 20px;
+  p {
+    font-weight: bold;
+    ${forPhoneOnly} {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+    svg {
+      ${forPhoneOnly} {
+        padding: 0 80px;
+      }
+    }
+  }
+`;
+
+const BenefitSvgHolder = styled.div`
+  ${forPhoneOnly} {
+    width: calc(100% - 80px);
+    margin: 0 auto;
+  }
+`;
+
 export default function Home() {
   return (
     <MainContainer>
@@ -186,12 +219,27 @@ export default function Home() {
           >
             Benefits
           </GradientHeader>
-          <p>Navigate the complex capital raising process simply</p>
-          <p>
-            Present your company professionally to investors to improve your
-            chance of closing quickly
-          </p>
-          <p>Accelerate your investor discussions</p>
+          <BenefitContainer>
+            <BenefitSvgHolder>
+              <BenefitImage1 />
+            </BenefitSvgHolder>
+            <p>Navigate the complex capital raising process simply</p>
+          </BenefitContainer>
+          <BenefitContainer>
+            <BenefitSvgHolder>
+              <BenefitImage2 />
+            </BenefitSvgHolder>
+            <p>
+              Present your company professionally to investors to improve your
+              chance of closing quickly
+            </p>
+          </BenefitContainer>
+          <BenefitContainer>
+            <BenefitSvgHolder>
+              <BenefitImage3 />
+            </BenefitSvgHolder>
+            <p>Accelerate your investor discussions</p>
+          </BenefitContainer>
         </SectionContainer>
 
         <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
@@ -231,17 +279,19 @@ export default function Home() {
         <SectionContainer
           style={{
             backgroundImage: 'linear-gradient(321deg, #ff9b49, #ffc92b)',
+            color: '#fff',
+            textAlign: 'center',
           }}
         >
           <h3>Get started on a 1 month free trial!</h3>
           <p>It is only ￡50/month* with no fixed contract.</p>
           <p>You can cancel anytime if it doesn't help you close your round!</p>
-          <Button>Start your 1-month free trial</Button>
-          <p>*excl. VAT</p>
+          <Button className='full-width-on-mobile'>
+            Start your 1-month free trial
+          </Button>
+          <p style={{ fontSize: '11px' }}>*excl. VAT</p>
         </SectionContainer>
       </main>
-
-      <footer></footer>
     </MainContainer>
   );
 }
