@@ -68,6 +68,9 @@ const Header = styled.h2`
   font-weight: bold;
   text-align: center;
   margin: 30px 0;
+  ${forTabletPortraitUp} {
+    margin-bottom: 60px;
+  }
   color: ${(props) => props.color || 'inherit'};
 `;
 
@@ -205,6 +208,11 @@ const SectionContainer = styled.section`
         line-height: 1.63;
       }
     }
+    ${forTabletPortraitUp} {
+      p {
+        line-height: 2;
+      }
+    }
   }
 `;
 
@@ -214,6 +222,10 @@ const BenefitContainer = styled.div`
   background-color: #fff;
   padding: 30px;
   margin-bottom: 20px;
+  ${forTabletPortraitUp} {
+    display: flex;
+    align-items: center;
+  }
   p {
     font-weight: bold;
     ${forPhoneOnly} {
@@ -222,11 +234,6 @@ const BenefitContainer = styled.div`
       margin-bottom: 0;
       font-size: 18px;
     }
-    svg {
-      ${forPhoneOnly} {
-        padding: 0 80px;
-      }
-    }
   }
 `;
 
@@ -234,6 +241,11 @@ const BenefitSvgHolder = styled.div`
   ${forPhoneOnly} {
     width: calc(100% - 100px);
     margin: 0 auto;
+  }
+  ${forTabletPortraitUp} {
+    width: 130px;
+    min-width: 130px;
+    margin-right: 30px;
   }
 `;
 
@@ -260,13 +272,24 @@ const FeatureText = styled.div`
   ${forPhoneOnly} {
     margin-left: 15px;
   }
+  ${forTabletPortraitUp} {
+    margin-left: 15px;
+  }
   h3 {
-    margin: 0 0 8px 0;
+    ${forPhoneOnly} {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+    ${forTabletPortraitUp} {
+      margin: 0 0 4px 0;
+      font-size: 24px;
+    }
   }
   p {
     color: #7e7f80;
     line-height: 1.63;
     margin: 0;
+    font-size: 16px;
   }
 `;
 
