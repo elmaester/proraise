@@ -63,6 +63,10 @@ const NavItem = styled.a`
   }
 `;
 
+const SectionContainer = styled.section`
+  padding: 30px 0;
+`;
+
 export default function Home() {
   return (
     <div>
@@ -89,7 +93,7 @@ export default function Home() {
       </NavBar>
 
       <main>
-        <section>
+        <SectionContainer>
           <Header>
             Help founders navigate the capital raising process simply
           </Header>
@@ -102,9 +106,9 @@ export default function Home() {
             time.
           </p>
           <Button>Start fundraising</Button>
-        </section>
+        </SectionContainer>
 
-        <section>
+        <SectionContainer>
           <GradientHeader
             gradientFrom='#00f091'
             gradientTo='#009efb'
@@ -118,9 +122,9 @@ export default function Home() {
             chance of closing quickly
           </p>
           <p>Accelerate your investor discussions</p>
-        </section>
+        </SectionContainer>
 
-        <section>
+        <SectionContainer>
           <GradientHeader
             gradientFrom='#ff9b49'
             gradientTo='#ffc92b'
@@ -152,15 +156,15 @@ export default function Home() {
             <h3>Track interests</h3>
             <p>Instant status update</p>
           </div>
-        </section>
+        </SectionContainer>
 
-        <section>
+        <SectionContainer>
           <h3>Get started on a 1 month free trial!</h3>
           <p>It is only ￡50/month* with no fixed contract.</p>
           <p>You can cancel anytime if it doesn't help you close your round!</p>
           <Button>Start your 1-month free trial</Button>
           <p>*excl. VAT</p>
-        </section>
+        </SectionContainer>
       </main>
 
       <footer></footer>
