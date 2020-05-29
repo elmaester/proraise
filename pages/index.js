@@ -64,9 +64,16 @@ const Header = styled.h2`
       font-size: 34px;
     }
     margin: 0;
+    font-weight: 300;
   }
   font-weight: bold;
   text-align: center;
+  &.left-aligned-header {
+    ${forTabletLandscapeUp} {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+  }
   margin: 30px 0;
   ${forTabletPortraitUp} {
     margin-bottom: 60px;
@@ -77,7 +84,14 @@ const Header = styled.h2`
 const HeaderImageHolder = styled.div`
   ${forTabletPortraitUp} {
     width: calc(100% - 270px);
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  ${forTabletLandscapeUp} {
+    width: 42%;
+    min-width: 42%;
+    margin-left: 67px;
+    margin-top: 30px;
   }
 `;
 
@@ -202,6 +216,23 @@ const SectionContainer = styled.section`
     padding-top: 60px;
     padding-bottom: 60px;
   }
+  &.header-section {
+    text-align: center;
+    ${forTabletLandscapeUp} {
+      display: flex;
+      flex-direction: row-reverse;
+      p {
+        text-align: left;
+      }
+    }
+    .subsection-in-header {
+      ${forTabletLandscapeUp} {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
   &.last-section {
     ${forPhoneOnly} {
       p {
@@ -298,6 +329,19 @@ const FeatureItemContainer = styled.div`
   &:not(:last-of-type) {
     margin-bottom: 30px;
   }
+  ${forTabletLandscapeUp} {
+    width: 50%;
+    &:not(:last-of-type) {
+      margin-bottom: 50px;
+    }
+  }
+`;
+
+const TwoFeaturesPerRowFacilitator = styled.div`
+  ${forTabletLandscapeUp} {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 export default function Home() {
@@ -314,12 +358,7 @@ export default function Home() {
       </Head>
 
       <NavBar>
-        <Header
-          className='pseudologo'
-          as='h1'
-          color={mainColor}
-          style={{ fontWeight: '300' }}
-        >
+        <Header className='pseudologo' as='h1' color={mainColor}>
           ProRaise
         </Header>
         <div>
@@ -333,30 +372,31 @@ export default function Home() {
       <main>
         {/* HEADER SECTION */}
 
-        <SectionContainer>
+        <SectionContainer className='header-section'>
           <HeaderImageHolder>
             <HeaderImage />
           </HeaderImageHolder>
-          <Header>
-            Help founders navigate the capital raising process simply
-          </Header>
-          <p
-            style={{
-              textAlign: 'center',
-              lineHeight: '2',
-              marginBottom: '25px',
-            }}
-          >
-            <span style={{ fontWeight: 'bold' }}>
-              Scaling your business may need funding from investors. This can be
-              a time consuming and complex process.
-            </span>{' '}
-            ProRaise helps you run your fundraising more efficiently, saving you
-            time.
-          </p>
-          <Button className='full-width-on-mobile centered-button'>
-            Start fundraising
-          </Button>
+          <div className='subsection-in-header'>
+            <Header className='left-aligned-header'>
+              Help founders navigate the capital raising process simply
+            </Header>
+            <p
+              style={{
+                lineHeight: '2',
+                marginBottom: '25px',
+              }}
+            >
+              <span style={{ fontWeight: 'bold' }}>
+                Scaling your business may need funding from investors. This can
+                be a time consuming and complex process.
+              </span>{' '}
+              ProRaise helps you run your fundraising more efficiently, saving
+              you time.
+            </p>
+            <Button className='full-width-on-mobile centered-button'>
+              Start fundraising
+            </Button>
+          </div>
         </SectionContainer>
 
         {/* BENEFITS SECTION */}
@@ -406,65 +446,67 @@ export default function Home() {
             Features
           </GradientHeader>
 
-          <FeatureItemContainer>
-            <FeatureImageCircleContainer>
-              <FeatureImage1 />
-            </FeatureImageCircleContainer>
-            <FeatureText>
-              <h3>Create your pitch</h3>
-              <p>Present your company professionally</p>
-            </FeatureText>
-          </FeatureItemContainer>
+          <TwoFeaturesPerRowFacilitator>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage1 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Create your pitch</h3>
+                <p>Present your company professionally</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-          <FeatureItemContainer>
-            <FeatureImageCircleContainer>
-              <FeatureImage2 />
-            </FeatureImageCircleContainer>
-            <FeatureText>
-              <h3>Set up your deal</h3>
-              <p>Clear and professional, done within minutes</p>
-            </FeatureText>
-          </FeatureItemContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage2 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Set up your deal</h3>
+                <p>Clear and professional, done within minutes</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-          <FeatureItemContainer>
-            <FeatureImageCircleContainer>
-              <FeatureImage3 />
-            </FeatureImageCircleContainer>
-            <FeatureText>
-              <h3>Share with your network</h3>
-              <p>Fast and simple way to engage with investors</p>
-            </FeatureText>
-          </FeatureItemContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage3 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Share with your network</h3>
+                <p>Fast and simple way to engage with investors</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-          <FeatureItemContainer>
-            <FeatureImageCircleContainer>
-              <FeatureImage4 />
-            </FeatureImageCircleContainer>
-            <FeatureText>
-              <h3>Secure dataroom</h3>
-              <p>Easy to set up and manage permissions</p>
-            </FeatureText>
-          </FeatureItemContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage4 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Secure dataroom</h3>
+                <p>Easy to set up and manage permissions</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-          <FeatureItemContainer>
-            <FeatureImageCircleContainer>
-              <FeatureImage5 />
-            </FeatureImageCircleContainer>
-            <FeatureText>
-              <h3>Gain feedback & insight</h3>
-              <p>Receive helpful feedback and insights</p>
-            </FeatureText>
-          </FeatureItemContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage5 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Gain feedback & insight</h3>
+                <p>Receive helpful feedback and insights</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-          <FeatureItemContainer>
-            <FeatureImageCircleContainer>
-              <FeatureImage6 />
-            </FeatureImageCircleContainer>
-            <FeatureText>
-              <h3>Track interests</h3>
-              <p>Instant status update</p>
-            </FeatureText>
-          </FeatureItemContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage6 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Track interests</h3>
+                <p>Instant status update</p>
+              </FeatureText>
+            </FeatureItemContainer>
+          </TwoFeaturesPerRowFacilitator>
         </SectionContainer>
 
         {/* LAST SECTION */}
