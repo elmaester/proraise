@@ -17,8 +17,8 @@ const forTabletLandscapeUp = '@media (min-width: 900px)';
 const forDesktopUp = '@media (min-width: 1200px)';
 const forBigDesktopUp = '@media (min-width: 1800px)';
 
-const MainColor = '#ff7702';
-const MainColorHover = '#e66b00';
+const mainColor = '#ff7702';
+const mainColorHover = '#e66b00';
 const secondaryColor = '#1f7be8';
 const secondaryColorHover = '#5e9fed';
 
@@ -86,7 +86,7 @@ const GradientHeader = styled(Header)`
 const Button = styled.a`
   padding: 11px 15px;
   color: #fff;
-  background-color: ${MainColor};
+  background-color: ${mainColor};
   border-radius: 5px;
   font-family: Nunito;
   font-size: 14px;
@@ -94,7 +94,7 @@ const Button = styled.a`
   transition: 0.25s;
   cursor: pointer;
   &:hover {
-    background-color: ${MainColorHover};
+    background-color: ${mainColorHover};
   }
   &.full-width-on-mobile {
     ${forPhoneOnly} {
@@ -184,7 +184,7 @@ const BenefitContainer = styled.div`
 
 const BenefitSvgHolder = styled.div`
   ${forPhoneOnly} {
-    width: calc(100% - 80px);
+    width: calc(100% - 100px);
     margin: 0 auto;
   }
 `;
@@ -246,7 +246,7 @@ export default function Home() {
         <Header
           className='pseudologo'
           as='h1'
-          color='#ff7702'
+          color={mainColor}
           style={{ fontWeight: '300' }}
         >
           ProRaise
