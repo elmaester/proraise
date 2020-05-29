@@ -1,10 +1,36 @@
 import Head from 'next/head';
 import styled, { createGlobalStyle } from 'styled-components';
 
+const forPhoneOnly = '@media (max-width: 599px)';
+const forTabletPortraitUp = '@media (min-width: 600px)';
+const forTabletLandscapeUp = '@media (min-width: 900px)';
+const forDesktopUp = '@media (min-width: 1200px)';
+const forBigDesktopUp = '@media (min-width: 1800px)';
+
+const whiteSpaceSidesMixin = `
+  padding-left: 15px;
+  padding-right: 15px;
+  ${forTabletPortraitUp} {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  ${forTabletLandscapeUp} {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+  ${forDesktopUp} {
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+  ${forBigDesktopUp} {
+    padding-left: 460px;
+    padding-right: 460px;
+  }`;
+
 const GlobalStyle = createGlobalStyle`
   html {
     font-family: Nunito;
-}
+  }
 `;
 
 const Header = styled.h2`
@@ -44,6 +70,7 @@ const Button = styled.a`
 `;
 
 const NavBar = styled.nav`
+  ${whiteSpaceSidesMixin}
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -61,15 +88,25 @@ const NavItem = styled.a`
   &:hover {
     color: #1f7be8;
   }
+  &.hidden-on-mobile {
+    display: none;
+    ${forTabletLandscapeUp} {
+      display: inline-block;
+    }
+  }
 `;
 
+const MainContainer = styled.div``;
+
 const SectionContainer = styled.section`
-  padding: 30px 0;
+  ${whiteSpaceSidesMixin}
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 export default function Home() {
   return (
-    <div>
+    <MainContainer>
       <GlobalStyle />
       <Head>
         <title>ProRaise</title>
@@ -85,8 +122,8 @@ export default function Home() {
           ProRaise
         </Header>
         <div>
-          <NavItem>Benefits</NavItem>
-          <NavItem>Features</NavItem>
+          <NavItem className='hidden-on-mobile'>Benefits</NavItem>
+          <NavItem className='hidden-on-mobile'>Features</NavItem>
           <NavItem>Login</NavItem>
           <Button>Sign up</Button>
         </div>
@@ -168,6 +205,6 @@ export default function Home() {
       </main>
 
       <footer></footer>
-    </div>
+    </MainContainer>
   );
 }
