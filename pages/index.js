@@ -56,6 +56,9 @@ const GlobalStyle = createGlobalStyle`
 
 const Header = styled.h2`
   font-size: 26px;
+  ${forDesktopUp} {
+    font-size: 36px;
+  }
   &.pseudologo {
     ${forPhoneOnly} {
       font-size: 24px;
@@ -93,6 +96,15 @@ const HeaderImageHolder = styled.div`
     margin-left: 67px;
     margin-top: 30px;
   }
+  ${forDesktopUp} {
+    margin-left: 80px;
+    width: 30%;
+    min-width: 30%;
+  }
+  ${forBigDesktopUp} {
+    width: 35%;
+    min-width: 35%;
+  }
 `;
 
 const GradientHeader = styled(Header)`
@@ -110,6 +122,9 @@ const GradientHeader = styled(Header)`
   ${forTabletPortraitUp} {
     text-align: left;
   }
+  ${forTabletLandscapeUp} {
+    font-size: 36px;
+  }
 `;
 
 const Button = styled.a`
@@ -117,12 +132,23 @@ const Button = styled.a`
     padding: 11px 15px;
     font-size: 14px;
   }
-  ${forTabletPortraitUp} {
-    padding: 14px 25px;
-    font-size: 16px;
-    &.centered-button {
-      display: block;
+  padding: 14px 25px;
+  font-size: 16px;
+  &.centered-button {
+    ${forTabletPortraitUp} {
       width: fit-content;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      ${forTabletLandscapeUp} {
+        display: inline-block;
+        margin-left: initial;
+        margin-right: initial;
+      }
+    }
+    &-always {
+      width: fit-content;
+      display: block;
       margin-left: auto;
       margin-right: auto;
     }
@@ -216,6 +242,10 @@ const SectionContainer = styled.section`
     padding-top: 60px;
     padding-bottom: 60px;
   }
+  ${forDesktopUp} {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
   &.header-section {
     text-align: center;
     ${forTabletLandscapeUp} {
@@ -248,6 +278,7 @@ const SectionContainer = styled.section`
 `;
 
 const BenefitContainer = styled.div`
+  box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.14);
   background-color: #fff;
@@ -256,6 +287,17 @@ const BenefitContainer = styled.div`
   ${forTabletPortraitUp} {
     display: flex;
     align-items: center;
+  }
+  ${forTabletLandscapeUp} {
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    width: 270px;
+    height: 404px;
+    padding: 34px 43px 10px 43px;
+  }
+  ${forDesktopUp} {
+    width: 300px;
   }
   p {
     font-weight: bold;
@@ -268,6 +310,13 @@ const BenefitContainer = styled.div`
   }
 `;
 
+const BenefitTilesFacilitator = styled.div`
+  ${forTabletLandscapeUp} {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
 const BenefitSvgHolder = styled.div`
   ${forPhoneOnly} {
     width: calc(100% - 100px);
@@ -277,6 +326,10 @@ const BenefitSvgHolder = styled.div`
     width: 130px;
     min-width: 130px;
     margin-right: 30px;
+  }
+  ${forTabletLandscapeUp} {
+    margin-right: 0;
+    width: 100%;
   }
 `;
 
@@ -306,6 +359,9 @@ const FeatureText = styled.div`
   ${forTabletPortraitUp} {
     margin-left: 15px;
   }
+  ${forDesktopUp} {
+    margin-left: 20px;
+  }
   h3 {
     ${forPhoneOnly} {
       margin: 0 0 8px 0;
@@ -314,6 +370,9 @@ const FeatureText = styled.div`
     ${forTabletPortraitUp} {
       margin: 0 0 4px 0;
       font-size: 24px;
+    }
+    ${forDesktopUp} {
+      font-size: 28px;
     }
   }
   p {
@@ -333,6 +392,11 @@ const FeatureItemContainer = styled.div`
     width: 50%;
     &:not(:last-of-type) {
       margin-bottom: 50px;
+    }
+  }
+  &.penultimate-feature-item-container {
+    ${forTabletLandscapeUp} {
+      margin-bottom: 0;
     }
   }
 `;
@@ -410,29 +474,31 @@ export default function Home() {
             Benefits
           </GradientHeader>
 
-          <BenefitContainer>
-            <BenefitSvgHolder>
-              <BenefitImage1 />
-            </BenefitSvgHolder>
-            <p>Navigate the complex capital raising process simply</p>
-          </BenefitContainer>
+          <BenefitTilesFacilitator>
+            <BenefitContainer>
+              <BenefitSvgHolder>
+                <BenefitImage1 />
+              </BenefitSvgHolder>
+              <p>Navigate the complex capital raising process simply</p>
+            </BenefitContainer>
 
-          <BenefitContainer>
-            <BenefitSvgHolder>
-              <BenefitImage2 />
-            </BenefitSvgHolder>
-            <p>
-              Present your company professionally to investors to improve your
-              chance of closing quickly
-            </p>
-          </BenefitContainer>
+            <BenefitContainer>
+              <BenefitSvgHolder>
+                <BenefitImage2 />
+              </BenefitSvgHolder>
+              <p>
+                Present your company professionally to investors to improve your
+                chance of closing quickly
+              </p>
+            </BenefitContainer>
 
-          <BenefitContainer>
-            <BenefitSvgHolder>
-              <BenefitImage3 />
-            </BenefitSvgHolder>
-            <p>Accelerate your investor discussions</p>
-          </BenefitContainer>
+            <BenefitContainer>
+              <BenefitSvgHolder>
+                <BenefitImage3 />
+              </BenefitSvgHolder>
+              <p>Accelerate your investor discussions</p>
+            </BenefitContainer>
+          </BenefitTilesFacilitator>
         </SectionContainer>
 
         {/* FEATURES SECTION */}
@@ -487,7 +553,7 @@ export default function Home() {
               </FeatureText>
             </FeatureItemContainer>
 
-            <FeatureItemContainer>
+            <FeatureItemContainer className='penultimate-feature-item-container'>
               <FeatureImageCircleContainer>
                 <FeatureImage5 />
               </FeatureImageCircleContainer>
@@ -525,7 +591,7 @@ export default function Home() {
             It is only £50/month* with no fixed contract.
           </p>
           <p>You can cancel anytime if it doesn't help you close your round!</p>
-          <Button className='full-width-on-mobile free-trial-button centered-button'>
+          <Button className='full-width-on-mobile free-trial-button centered-button-always'>
             Start your 1-month free trial
           </Button>
           <p style={{ fontSize: '11px', marginBottom: '0' }}>*excl. VAT</p>
