@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
-import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import styled, { createGlobalStyle } from 'styled-components';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 import HeaderImage from './../svg/header-image.svg';
 import BenefitImage1 from './../svg/benefit-1.svg';
 import BenefitImage2 from './../svg/benefit-2.svg';
@@ -56,21 +57,23 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const PseudoLogo = styled(AnchorLink)`
+  color: ${mainColor};
+  text-decoration: none;
+  ${forPhoneOnly} {
+    font-size: 24px;
+  }
+  ${forTabletPortraitUp} {
+    font-size: 34px;
+  }
+  margin: 0;
+  font-weight: 300;
+`;
+
 const Header = styled.h2`
   font-size: 26px;
   ${forDesktopUp} {
     font-size: 36px;
-  }
-  &.pseudologo {
-    text-decoration: none;
-    ${forPhoneOnly} {
-      font-size: 24px;
-    }
-    ${forTabletPortraitUp} {
-      font-size: 34px;
-    }
-    margin: 0;
-    font-weight: 300;
   }
   font-weight: bold;
   text-align: center;
@@ -207,7 +210,7 @@ const NavBar = styled.nav`
   }
 `;
 
-const NavItem = styled.a`
+const NavItem = styled(AnchorLink)`
   text-decoration: none;
   color: #000;
   ${forPhoneOnly} {
@@ -447,7 +450,6 @@ const Anchor = styled.div`
 `;
 
 export default function Home() {
-  const isClientSide = typeof window !== 'undefined';
   const [scrollPosition, setScrollPosition] = React.useState(0);
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollPosition(currPos.y);
@@ -465,9 +467,9 @@ export default function Home() {
       </Head>
 
       <NavBar className={scrollPosition < -20 && 'shadow-activated'}>
-        <Header className='pseudologo' as='a' href='#top' color={mainColor}>
+        <PseudoLogo href='#top' color={mainColor}>
           ProRaise
-        </Header>
+        </PseudoLogo>
         <div>
           <NavItem className='hidden-on-mobile' href='#benefits'>
             Benefits
