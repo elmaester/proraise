@@ -60,6 +60,7 @@ const Header = styled.h2`
     font-size: 36px;
   }
   &.pseudologo {
+    text-decoration: none;
     ${forPhoneOnly} {
       font-size: 24px;
     }
@@ -182,20 +183,32 @@ const Button = styled.a`
 `;
 
 const NavBar = styled.nav`
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
   ${whiteSpaceSidesMixin}
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  &.shadow-activated {
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  }
   ${forPhoneOnly} {
-    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   ${forTabletPortraitUp} {
-    margin-top: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 `;
 
 const NavItem = styled.a`
+  text-decoration: none;
+  color: #000;
   ${forPhoneOnly} {
     font-size: 14px;
   }
@@ -224,13 +237,20 @@ const NavItem = styled.a`
   }
   &.login-button {
     color: ${secondaryColor};
-  }
-  &:hover {
-    color: ${secondaryColorHover};
+    &:hover {
+      color: ${secondaryColorHover};
+    }
   }
 `;
 
-const MainContainer = styled.div``;
+const MainContainer = styled.div`
+  ${forPhoneOnly} {
+    margin-top: 60px;
+  }
+  ${forTabletPortraitUp} {
+    margin-top: 80px;
+  }
+`;
 
 const SectionContainer = styled.section`
   ${whiteSpaceSidesMixin}
@@ -248,6 +268,7 @@ const SectionContainer = styled.section`
   }
   &.header-section {
     text-align: center;
+    padding-top: 0;
     ${forTabletLandscapeUp} {
       display: flex;
       flex-direction: row-reverse;
@@ -264,6 +285,10 @@ const SectionContainer = styled.section`
     }
   }
   &.last-section {
+    background-image: linear-gradient(321deg, #ff9b49, #ffc92b);
+    color: #fff;
+    text-align: center;
+    padding-bottom: 20px;
     ${forPhoneOnly} {
       p {
         line-height: 1.63;
@@ -408,9 +433,21 @@ const TwoFeaturesPerRowFacilitator = styled.div`
   }
 `;
 
+const Anchor = styled.div`
+  ${forPhoneOnly} {
+    transform: translateY(-82px);
+  }
+  ${forTabletPortraitUp} {
+    transform: translateY(-136px);
+  }
+  ${forDesktopUp} {
+    transform: translateY(-176px);
+  }
+`;
+
 export default function Home() {
   return (
-    <MainContainer>
+    <>
       <GlobalStyle />
       <Head>
         <title>ProRaise</title>
@@ -421,19 +458,24 @@ export default function Home() {
         />
       </Head>
 
-      <NavBar>
-        <Header className='pseudologo' as='h1' color={mainColor}>
+      <NavBar className={'shadow-activated'}>
+        <Header className='pseudologo' as='a' href='#top' color={mainColor}>
           ProRaise
         </Header>
         <div>
-          <NavItem className='hidden-on-mobile'>Benefits</NavItem>
-          <NavItem className='hidden-on-mobile'>Features</NavItem>
+          <NavItem className='hidden-on-mobile' href='#benefits'>
+            Benefits
+          </NavItem>
+          <NavItem className='hidden-on-mobile' href='#features'>
+            Features
+          </NavItem>
           <NavItem className='login-button'>Login</NavItem>
           <Button>Sign up</Button>
         </div>
       </NavBar>
 
-      <main>
+      <MainContainer>
+        <Anchor id='top' />
         {/* HEADER SECTION */}
 
         <SectionContainer className='header-section'>
@@ -466,6 +508,7 @@ export default function Home() {
         {/* BENEFITS SECTION */}
 
         <SectionContainer style={{ backgroundColor: '#e9eaec' }}>
+          <Anchor id='benefits' />
           <GradientHeader
             gradientFrom='#00f091'
             gradientTo='#009efb'
@@ -504,6 +547,7 @@ export default function Home() {
         {/* FEATURES SECTION */}
 
         <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
+          <Anchor id='features' />
           <GradientHeader
             gradientFrom='#ff9b49'
             gradientTo='#ffc92b'
@@ -577,15 +621,7 @@ export default function Home() {
 
         {/* LAST SECTION */}
 
-        <SectionContainer
-          style={{
-            backgroundImage: 'linear-gradient(321deg, #ff9b49, #ffc92b)',
-            color: '#fff',
-            textAlign: 'center',
-            paddingBottom: '20px',
-          }}
-          className='last-section'
-        >
+        <SectionContainer className='last-section'>
           <Header as='h3'>Get started on a 1 month free trial!</Header>
           <p style={{ fontWeight: 'bold' }}>
             It is only £50/month* with no fixed contract.
@@ -596,7 +632,7 @@ export default function Home() {
           </Button>
           <p style={{ fontSize: '11px', marginBottom: '0' }}>*excl. VAT</p>
         </SectionContainer>
-      </main>
-    </MainContainer>
+      </MainContainer>
+    </>
   );
 }
