@@ -18,6 +18,7 @@ import {
   Header,
   HeaderImageHolder,
   GradientHeader,
+  GradientHeaderContainer,
   Button,
   NavBar,
   NavItem,
@@ -99,13 +100,15 @@ export default function Home() {
 
         <SectionContainer style={{ backgroundColor: '#e9eaec' }}>
           <Anchor id='benefits' />
-          <GradientHeader
-            gradientFrom='#00f091'
-            gradientTo='#009efb'
-            angle='106'
-          >
-            Benefits
-          </GradientHeader>
+          <GradientHeaderContainer>
+            <GradientHeader
+              gradientFrom='#00f091'
+              gradientTo='#009efb'
+              angle='106'
+            >
+              Benefits
+            </GradientHeader>
+          </GradientHeaderContainer>
 
           <BenefitTilesFacilitator>
             <BenefitContainer>
@@ -138,13 +141,15 @@ export default function Home() {
 
         <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
           <Anchor id='features' />
-          <GradientHeader
-            gradientFrom='#ff9b49'
-            gradientTo='#ffc92b'
-            angle='285'
-          >
-            Features
-          </GradientHeader>
+          <GradientHeaderContainer>
+            <GradientHeader
+              gradientFrom='#ff9b49'
+              gradientTo='#ffc92b'
+              angle='285'
+            >
+              Features
+            </GradientHeader>
+          </GradientHeaderContainer>
 
           <TwoFeaturesPerRowFacilitator>
             <FeatureItemContainer>

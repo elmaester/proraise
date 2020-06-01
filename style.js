@@ -109,7 +109,7 @@ export const GradientHeader = styled(Header)`
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: block;
+  display: inline-block;
   text-align: center;
   margin-top: 0;
   ${forTabletPortraitUp} {
@@ -117,6 +117,13 @@ export const GradientHeader = styled(Header)`
   }
   ${forTabletLandscapeUp} {
     font-size: 36px;
+  }
+`;
+
+export const GradientHeaderContainer = styled.div`
+  ${forPhoneOnly} {
+    display: flex;
+    justify-content: center;
   }
 `;
 
