@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import React from 'react';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import styled, { createGlobalStyle } from 'styled-components';
 import HeaderImage from './../svg/header-image.svg';
 import BenefitImage1 from './../svg/benefit-1.svg';
@@ -185,16 +187,15 @@ const Button = styled.a`
 const NavBar = styled.nav`
   position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   background-color: #fff;
   ${whiteSpaceSidesMixin}
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  transition: box-shadow 0.3s ease-in-out;
   &.shadow-activated {
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
   }
   ${forPhoneOnly} {
     padding-top: 10px;
@@ -446,6 +447,11 @@ const Anchor = styled.div`
 `;
 
 export default function Home() {
+  const isClientSide = typeof window !== 'undefined';
+  const [scrollPosition, setScrollPosition] = React.useState(0);
+  useScrollPosition(({ prevPos, currPos }) => {
+    setScrollPosition(currPos.y);
+  });
   return (
     <>
       <GlobalStyle />
@@ -458,7 +464,7 @@ export default function Home() {
         />
       </Head>
 
-      <NavBar className={'shadow-activated'}>
+      <NavBar className={scrollPosition < -20 && 'shadow-activated'}>
         <Header className='pseudologo' as='a' href='#top' color={mainColor}>
           ProRaise
         </Header>
