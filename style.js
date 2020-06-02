@@ -238,7 +238,10 @@ export const MainContainer = styled.div`
     margin-top: 60px;
   }
   ${forTabletPortraitUp} {
-    margin-top: 80px;
+    margin-top: 60px;
+  }
+  ${forTabletLandscapeUp} {
+    margin-top: 84px;
   }
 `;
 
@@ -260,17 +263,27 @@ export const SectionContainer = styled.section`
     text-align: center;
     padding-top: 0;
     ${forTabletLandscapeUp} {
+      padding-bottom: 114px;
       display: flex;
       flex-direction: row-reverse;
       p {
         text-align: left;
       }
     }
+    ${forDesktopUp} {
+      padding-bottom: 125px;
+    }
     .subsection-in-header {
       ${forTabletLandscapeUp} {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+      }
+      ${forDesktopUp} {
+        padding-top: 13px;
+      }
+      ${forBigDesktopUp} {
+        padding-top: 23px;
       }
     }
   }
@@ -280,6 +293,7 @@ export const SectionContainer = styled.section`
     text-align: center;
     padding-bottom: 20px;
     ${forPhoneOnly} {
+      padding-top: 60px;
       p {
         line-height: 1.63;
       }
@@ -287,6 +301,21 @@ export const SectionContainer = styled.section`
     ${forTabletPortraitUp} {
       p {
         line-height: 2;
+      }
+    }
+    ${forTabletLandscapeUp} {
+      padding-top: 100px;
+    }
+    h3 {
+      margin-top: 0;
+      ${forPhoneOnly} {
+        margin-bottom: 30px;
+      }
+      ${forTabletPortraitUp} {
+        margin-bottom: 40px;
+      }
+      ${forTabletLandscapeUp} {
+        font-size: 36px;
       }
     }
   }
@@ -407,6 +436,11 @@ export const FeatureItemContainer = styled.div`
     width: 50%;
     &:not(:last-of-type) {
       margin-bottom: 50px;
+    }
+  }
+  ${forBigDesktopUp} {
+    &:not(:last-of-type) {
+      margin-bottom: 70px;
     }
   }
   &.penultimate-feature-item-container {
