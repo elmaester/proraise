@@ -363,7 +363,8 @@ export const BenefitTilesFacilitator = styled.div`
 
 export const BenefitSvgHolder = styled.div`
   ${forPhoneOnly} {
-    width: calc(100% - 100px);
+    width: 130px;
+    min-width: 130px;
     margin: 0 auto;
   }
   ${forTabletPortraitUp} {
