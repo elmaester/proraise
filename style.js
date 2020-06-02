@@ -16,20 +16,16 @@ const whiteSpaceSidesMixin = `
   padding-left: 15px;
   padding-right: 15px;
   ${forTabletPortraitUp} {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: calc((100vw - 539px)/2);
+    padding-right: calc((100vw - 539px)/2);
   }
   ${forTabletLandscapeUp} {
-    padding-left: 75px;
-    padding-right: 75px;
+    padding-left: calc((100vw - 874px)/2);
+    padding-right: calc((100vw - 874px)/2);
   }
   ${forDesktopUp} {
-    padding-left: 140px;
-    padding-right: 140px;
-  }
-  ${forBigDesktopUp} {
-    padding-left: 460px;
-    padding-right: 460px;
+    padding-left: calc((100vw - 1000px)/2);
+    padding-right: calc((100vw - 1000px)/2);
   }`;
 
 export const GlobalStyle = createGlobalStyle`
@@ -79,24 +75,20 @@ export const Header = styled.h2`
 
 export const HeaderImageHolder = styled.div`
   ${forTabletPortraitUp} {
-    width: calc(100% - 270px);
+    width: 270px;
     margin-left: auto;
     margin-right: auto;
   }
   ${forTabletLandscapeUp} {
-    width: 42%;
-    min-width: 42%;
+    width: 357px;
+    min-width: 357px;
     margin-left: 67px;
     margin-top: 30px;
   }
   ${forDesktopUp} {
     margin-left: 80px;
-    width: 30%;
-    min-width: 30%;
-  }
-  ${forBigDesktopUp} {
-    width: 35%;
-    min-width: 35%;
+    width: 426px;
+    min-width: 426px;
   }
 `;
 
