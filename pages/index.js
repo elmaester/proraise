@@ -75,7 +75,7 @@ export default function Home() {
           </HeaderImageHolder>
           <div className='subsection-in-header'>
             <Header className='left-aligned-header'>
-              Help founders navigate the capital raising process simply
+              Helps founders raise capital more efficiently
             </Header>
             <p
               style={{
@@ -84,11 +84,10 @@ export default function Home() {
               }}
             >
               <span style={{ fontWeight: 'bold' }}>
-                Scaling your business may need funding from investors. This can
-                be a time consuming and complex process.
+                Scaling your business takes funding, which can be complex and
+                time-consuming.
               </span>{' '}
-              ProRaise helps you run your fundraising more efficiently, saving
-              you time.
+              ProRaise helps you do it better.
             </p>
             <Button className='full-width-on-mobile centered-button'>
               Start fundraising
@@ -115,24 +114,23 @@ export default function Home() {
               <BenefitSvgHolder>
                 <BenefitImage1 />
               </BenefitSvgHolder>
-              <p>Navigate the complex capital raising process simply</p>
+              <p>Manage the fundraising process more easily</p>
             </BenefitContainer>
 
             <BenefitContainer>
               <BenefitSvgHolder>
                 <BenefitImage2 />
               </BenefitSvgHolder>
-              <p>
-                Present your company professionally to investors to improve your
-                chance of closing quickly
-              </p>
+              <p>Present your company in a way investors love</p>
             </BenefitContainer>
 
             <BenefitContainer>
               <BenefitSvgHolder>
                 <BenefitImage3 />
               </BenefitSvgHolder>
-              <p>Accelerate your investor discussions</p>
+              <p>
+                Speed up the investment process and improve your success rate
+              </p>
             </BenefitContainer>
           </BenefitTilesFacilitator>
         </SectionContainer>
@@ -168,7 +166,7 @@ export default function Home() {
               </FeatureImageCircleContainer>
               <FeatureText>
                 <h3>Set up your deal</h3>
-                <p>Clear and professional, done within minutes</p>
+                <p>Clear, simple and done in minutes</p>
               </FeatureText>
             </FeatureItemContainer>
 
@@ -178,7 +176,7 @@ export default function Home() {
               </FeatureImageCircleContainer>
               <FeatureText>
                 <h3>Share with your network</h3>
-                <p>Fast and simple way to engage with investors</p>
+                <p>The fastest way to engage with investors</p>
               </FeatureText>
             </FeatureItemContainer>
 
@@ -187,8 +185,8 @@ export default function Home() {
                 <FeatureImage4 />
               </FeatureImageCircleContainer>
               <FeatureText>
-                <h3>Secure dataroom</h3>
-                <p>Easy to set up and manage permissions</p>
+                <h3>Secure dataroom access</h3>
+                <p>It's easy to set up and manage</p>
               </FeatureText>
             </FeatureItemContainer>
 
@@ -197,8 +195,8 @@ export default function Home() {
                 <FeatureImage5 />
               </FeatureImageCircleContainer>
               <FeatureText>
-                <h3>Gain feedback & insight</h3>
-                <p>Receive helpful feedback and insights</p>
+                <h3>Improve your success rate</h3>
+                <p>Get investor feedback and insight</p>
               </FeatureText>
             </FeatureItemContainer>
 
@@ -207,8 +205,8 @@ export default function Home() {
                 <FeatureImage6 />
               </FeatureImageCircleContainer>
               <FeatureText>
-                <h3>Track interests</h3>
-                <p>Instant status update</p>
+                <h3>Track interest</h3>
+                <p>With instant status updates</p>
               </FeatureText>
             </FeatureItemContainer>
           </TwoFeaturesPerRowFacilitator>
@@ -217,11 +215,10 @@ export default function Home() {
         {/* LAST SECTION */}
 
         <SectionContainer className='last-section'>
-          <Header as='h3'>Get started on a 1 month free trial!</Header>
+          <Header as='h3'>Start your free one-month trial</Header>
           <p style={{ fontWeight: 'bold' }}>
-            It is only £50/month* with no fixed contract.
+            Just £50 a month*, there's no contract and you can cancel any time
           </p>
-          <p>You can cancel anytime if it doesn't help you close your round!</p>
           <Button className='full-width-on-mobile free-trial-button centered-button-always'>
             Start your 1-month free trial
           </Button>
