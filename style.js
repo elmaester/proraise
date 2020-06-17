@@ -162,6 +162,12 @@ export const Button = styled.a`
     }
   }
   &.free-trial-button {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+    &:hover {
+      background-color: #f2f2f2;
+    }
     ${forPhoneOnly} {
       margin-top: 30px;
       margin-bottom: 30px;
