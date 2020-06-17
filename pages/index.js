@@ -34,11 +34,21 @@ import {
   Anchor,
 } from '../style';
 
+import PasswordWall from '../components/PasswordWall';
+import { reactLocalStorage } from 'reactjs-localstorage';
+
 export default function Home() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
+  const [authenticated, setAuthenticated] = React.useState(false);
+  const [loaded, setLoaded] = React.useState(false);
+  React.useEffect(() => {
+    if (reactLocalStorage.get('authenticated')) setAuthenticated(true);
+    setLoaded(true);
+  });
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollPosition(currPos.y);
   });
+
   return (
     <>
       <GlobalStyle />
@@ -51,180 +61,195 @@ export default function Home() {
         />
       </Head>
 
-      <NavBar className={scrollPosition < -20 && 'shadow-activated'}>
-        <PseudoLogo href='#top'>ProRaise</PseudoLogo>
-        <div>
-          <NavItem className='hidden-on-mobile' href='#benefits'>
-            Benefits
-          </NavItem>
-          <NavItem className='hidden-on-mobile' href='#features'>
-            Features
-          </NavItem>
-          <NavItem className='login-button'>Login</NavItem>
-          <Button>Sign up</Button>
-        </div>
-      </NavBar>
+      {authenticated ? (
+        <>
+          <NavBar className={scrollPosition < -20 && 'shadow-activated'}>
+            <PseudoLogo href='#top'>ProRaise</PseudoLogo>
+            <div>
+              <NavItem className='hidden-on-mobile' href='#benefits'>
+                Benefits
+              </NavItem>
+              <NavItem className='hidden-on-mobile' href='#features'>
+                Features
+              </NavItem>
+              <NavItem className='login-button'>Login</NavItem>
+              <Button>Sign up</Button>
+            </div>
+          </NavBar>
 
-      <MainContainer>
-        <Anchor id='top' />
-        {/* HEADER SECTION */}
+          <MainContainer>
+            <Anchor id='top' />
+            {/* HEADER SECTION */}
 
-        <SectionContainer className='header-section'>
-          <HeaderImageHolder>
-            <HeaderImage />
-          </HeaderImageHolder>
-          <div className='subsection-in-header'>
-            <Header className='left-aligned-header'>
-              Helps founders raise capital more efficiently
-            </Header>
-            <p
-              style={{
-                lineHeight: '2',
-                marginBottom: '25px',
-              }}
-            >
-              <span style={{ fontWeight: 'bold' }}>
-                Scaling your business takes funding, which can be complex and
-                time-consuming.
-              </span>{' '}
-              ProRaise helps you do it better.
-            </p>
-            <Button className='full-width-on-mobile centered-button'>
-              Start fundraising
-            </Button>
-          </div>
-        </SectionContainer>
+            <SectionContainer className='header-section'>
+              <HeaderImageHolder>
+                <HeaderImage />
+              </HeaderImageHolder>
+              <div className='subsection-in-header'>
+                <Header className='left-aligned-header'>
+                  Helps founders raise capital more efficiently
+                </Header>
+                <p
+                  style={{
+                    lineHeight: '2',
+                    marginBottom: '25px',
+                  }}
+                >
+                  <span style={{ fontWeight: 'bold' }}>
+                    Scaling your business takes funding, which can be complex
+                    and time-consuming.
+                  </span>{' '}
+                  ProRaise helps you do it better.
+                </p>
+                <Button className='full-width-on-mobile centered-button'>
+                  Start fundraising
+                </Button>
+              </div>
+            </SectionContainer>
 
-        {/* BENEFITS SECTION */}
+            {/* BENEFITS SECTION */}
 
-        <SectionContainer style={{ backgroundColor: '#e9eaec' }}>
-          <Anchor id='benefits' />
-          <GradientHeaderContainer>
-            <GradientHeader
-              gradientFrom='#00f091'
-              gradientTo='#009efb'
-              angle='106'
-            >
-              Benefits
-            </GradientHeader>
-          </GradientHeaderContainer>
+            <SectionContainer style={{ backgroundColor: '#e9eaec' }}>
+              <Anchor id='benefits' />
+              <GradientHeaderContainer>
+                <GradientHeader
+                  gradientFrom='#00f091'
+                  gradientTo='#009efb'
+                  angle='106'
+                >
+                  Benefits
+                </GradientHeader>
+              </GradientHeaderContainer>
 
-          <BenefitTilesFacilitator>
-            <BenefitContainer>
-              <BenefitSvgHolder>
-                <BenefitImage1 />
-              </BenefitSvgHolder>
-              <p>Manage the fundraising process more easily</p>
-            </BenefitContainer>
+              <BenefitTilesFacilitator>
+                <BenefitContainer>
+                  <BenefitSvgHolder>
+                    <BenefitImage1 />
+                  </BenefitSvgHolder>
+                  <p>Manage the fundraising process more easily</p>
+                </BenefitContainer>
 
-            <BenefitContainer>
-              <BenefitSvgHolder>
-                <BenefitImage2 />
-              </BenefitSvgHolder>
-              <p>Present your company in a way investors love</p>
-            </BenefitContainer>
+                <BenefitContainer>
+                  <BenefitSvgHolder>
+                    <BenefitImage2 />
+                  </BenefitSvgHolder>
+                  <p>Present your company in a way investors love</p>
+                </BenefitContainer>
 
-            <BenefitContainer>
-              <BenefitSvgHolder>
-                <BenefitImage3 />
-              </BenefitSvgHolder>
-              <p>
-                Speed up the investment process and improve your success rate
+                <BenefitContainer>
+                  <BenefitSvgHolder>
+                    <BenefitImage3 />
+                  </BenefitSvgHolder>
+                  <p>
+                    Speed up the investment process and improve your success
+                    rate
+                  </p>
+                </BenefitContainer>
+              </BenefitTilesFacilitator>
+            </SectionContainer>
+
+            {/* FEATURES SECTION */}
+
+            <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
+              <Anchor id='features' />
+              <GradientHeaderContainer>
+                <GradientHeader
+                  gradientFrom='#ff9b49'
+                  gradientTo='#ffc92b'
+                  angle='285'
+                >
+                  Features
+                </GradientHeader>
+              </GradientHeaderContainer>
+
+              <TwoFeaturesPerRowFacilitator>
+                <FeatureItemContainer>
+                  <FeatureImageCircleContainer>
+                    <FeatureImage1 />
+                  </FeatureImageCircleContainer>
+                  <FeatureText>
+                    <h3>Create your pitch</h3>
+                    <p>Present your company professionally</p>
+                  </FeatureText>
+                </FeatureItemContainer>
+
+                <FeatureItemContainer>
+                  <FeatureImageCircleContainer>
+                    <FeatureImage2 />
+                  </FeatureImageCircleContainer>
+                  <FeatureText>
+                    <h3>Set up your deal</h3>
+                    <p>Clear, simple and done in minutes</p>
+                  </FeatureText>
+                </FeatureItemContainer>
+
+                <FeatureItemContainer>
+                  <FeatureImageCircleContainer>
+                    <FeatureImage3 />
+                  </FeatureImageCircleContainer>
+                  <FeatureText>
+                    <h3>Share with your network</h3>
+                    <p>The fastest way to engage with investors</p>
+                  </FeatureText>
+                </FeatureItemContainer>
+
+                <FeatureItemContainer>
+                  <FeatureImageCircleContainer>
+                    <FeatureImage4 />
+                  </FeatureImageCircleContainer>
+                  <FeatureText>
+                    <h3>Secure dataroom access</h3>
+                    <p>It's easy to set up and manage</p>
+                  </FeatureText>
+                </FeatureItemContainer>
+
+                <FeatureItemContainer className='penultimate-feature-item-container'>
+                  <FeatureImageCircleContainer>
+                    <FeatureImage5 />
+                  </FeatureImageCircleContainer>
+                  <FeatureText>
+                    <h3>Improve your success rate</h3>
+                    <p>Get investor feedback and insight</p>
+                  </FeatureText>
+                </FeatureItemContainer>
+
+                <FeatureItemContainer>
+                  <FeatureImageCircleContainer>
+                    <FeatureImage6 />
+                  </FeatureImageCircleContainer>
+                  <FeatureText>
+                    <h3>Track interest</h3>
+                    <p>With instant status updates</p>
+                  </FeatureText>
+                </FeatureItemContainer>
+              </TwoFeaturesPerRowFacilitator>
+            </SectionContainer>
+
+            {/* LAST SECTION */}
+
+            <SectionContainer className='last-section'>
+              <Header as='h3'>Start your free one-month trial</Header>
+              <p style={{ fontWeight: 'bold' }}>
+                Just £50 a month*, there's no contract and you can cancel any
+                time
               </p>
-            </BenefitContainer>
-          </BenefitTilesFacilitator>
-        </SectionContainer>
-
-        {/* FEATURES SECTION */}
-
-        <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
-          <Anchor id='features' />
-          <GradientHeaderContainer>
-            <GradientHeader
-              gradientFrom='#ff9b49'
-              gradientTo='#ffc92b'
-              angle='285'
-            >
-              Features
-            </GradientHeader>
-          </GradientHeaderContainer>
-
-          <TwoFeaturesPerRowFacilitator>
-            <FeatureItemContainer>
-              <FeatureImageCircleContainer>
-                <FeatureImage1 />
-              </FeatureImageCircleContainer>
-              <FeatureText>
-                <h3>Create your pitch</h3>
-                <p>Present your company professionally</p>
-              </FeatureText>
-            </FeatureItemContainer>
-
-            <FeatureItemContainer>
-              <FeatureImageCircleContainer>
-                <FeatureImage2 />
-              </FeatureImageCircleContainer>
-              <FeatureText>
-                <h3>Set up your deal</h3>
-                <p>Clear, simple and done in minutes</p>
-              </FeatureText>
-            </FeatureItemContainer>
-
-            <FeatureItemContainer>
-              <FeatureImageCircleContainer>
-                <FeatureImage3 />
-              </FeatureImageCircleContainer>
-              <FeatureText>
-                <h3>Share with your network</h3>
-                <p>The fastest way to engage with investors</p>
-              </FeatureText>
-            </FeatureItemContainer>
-
-            <FeatureItemContainer>
-              <FeatureImageCircleContainer>
-                <FeatureImage4 />
-              </FeatureImageCircleContainer>
-              <FeatureText>
-                <h3>Secure dataroom access</h3>
-                <p>It's easy to set up and manage</p>
-              </FeatureText>
-            </FeatureItemContainer>
-
-            <FeatureItemContainer className='penultimate-feature-item-container'>
-              <FeatureImageCircleContainer>
-                <FeatureImage5 />
-              </FeatureImageCircleContainer>
-              <FeatureText>
-                <h3>Improve your success rate</h3>
-                <p>Get investor feedback and insight</p>
-              </FeatureText>
-            </FeatureItemContainer>
-
-            <FeatureItemContainer>
-              <FeatureImageCircleContainer>
-                <FeatureImage6 />
-              </FeatureImageCircleContainer>
-              <FeatureText>
-                <h3>Track interest</h3>
-                <p>With instant status updates</p>
-              </FeatureText>
-            </FeatureItemContainer>
-          </TwoFeaturesPerRowFacilitator>
-        </SectionContainer>
-
-        {/* LAST SECTION */}
-
-        <SectionContainer className='last-section'>
-          <Header as='h3'>Start your free one-month trial</Header>
-          <p style={{ fontWeight: 'bold' }}>
-            Just £50 a month*, there's no contract and you can cancel any time
-          </p>
-          <Button className='full-width-on-mobile free-trial-button centered-button-always'>
-            Start your 1-month free trial
-          </Button>
-          <p style={{ fontSize: '11px', marginBottom: '0' }}>*excl. VAT</p>
-        </SectionContainer>
-      </MainContainer>
+              <Button className='full-width-on-mobile free-trial-button centered-button-always'>
+                Start your 1-month free trial
+              </Button>
+              <p style={{ fontSize: '11px', marginBottom: '0' }}>*excl. VAT</p>
+            </SectionContainer>
+          </MainContainer>
+        </>
+      ) : (
+        loaded && (
+          <PasswordWall
+            success={() => {
+              setAuthenticated(true);
+              reactLocalStorage.set('authenticated', true);
+            }}
+          />
+        )
+      )}
     </>
   );
 }
