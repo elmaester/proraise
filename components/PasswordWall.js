@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { Button } from '../style';
+import { Button, forPhoneOnly } from '../style';
 
 const PasswordWallStyle = styled.div`
   width: 100%;
@@ -15,6 +15,10 @@ const PasswordWallStyle = styled.div`
   h2 {
     font-size: 32px;
     margin: 0;
+    ${forPhoneOnly} {
+      padding: 0 15px;
+      text-align: center;
+    }
   }
 
   input {

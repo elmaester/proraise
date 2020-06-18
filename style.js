@@ -1,18 +1,18 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
-const forPhoneOnly = '@media (max-width: 599px)';
-const forTabletPortraitUp = '@media (min-width: 600px)';
-const forTabletLandscapeUp = '@media (min-width: 900px)';
-const forDesktopUp = '@media (min-width: 1200px)';
-const forBigDesktopUp = '@media (min-width: 1800px)';
+export const forPhoneOnly = '@media (max-width: 599px)';
+export const forTabletPortraitUp = '@media (min-width: 600px)';
+export const forTabletLandscapeUp = '@media (min-width: 900px)';
+export const forDesktopUp = '@media (min-width: 1200px)';
+export const forBigDesktopUp = '@media (min-width: 1800px)';
 
 const mainColor = '#ff7702';
 const mainColorHover = '#e66b00';
 const secondaryColor = '#1f7be8';
 const secondaryColorHover = '#5e9fed';
 
-const whiteSpaceSidesMixin = `
+export const whiteSpaceSidesMixin = `
   padding-left: 15px;
   padding-right: 15px;
   ${forTabletPortraitUp} {
@@ -322,6 +322,13 @@ export const SectionContainer = styled.section`
       }
       ${forTabletLandscapeUp} {
         font-size: 36px;
+      }
+    }
+    a.privacy-link {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        font-weight: bold;
       }
     }
   }

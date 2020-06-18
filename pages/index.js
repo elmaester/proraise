@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import Link from 'next/link';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import HeaderImage from './../svg/header-image.svg';
 import BenefitImage1 from './../svg/benefit-1.svg';
@@ -236,7 +237,12 @@ export default function Home() {
               <Button className='full-width-on-mobile free-trial-button centered-button-always'>
                 Start your 1-month free trial
               </Button>
-              <p style={{ fontSize: '11px', marginBottom: '0' }}>*excl. VAT</p>
+              <p style={{ fontSize: '11px', marginBottom: '0' }}>
+                *excl. VAT.{' '}
+                <Link href='/privacy-cookie-policy'>
+                  <a className='privacy-link'>View terms and conditions</a>
+                </Link>
+              </p>
             </SectionContainer>
           </MainContainer>
         </>
