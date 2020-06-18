@@ -1,3 +1,4 @@
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 const CookiePolicy = () => {
   return (
     <>
@@ -12,27 +13,39 @@ const CookiePolicy = () => {
         <div class='table_of_content'>Table of Contents</div>{' '}
         <div>
           <h1>
-            <a href='#Introduction'>1. Introduction</a>
+            <AnchorLink offset='100' href='#Introduction'>
+              1. Introduction
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#What'>2. What is a cookie?</a>
+            <AnchorLink offset='100' href='#What'>
+              2. What is a cookie?
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#How'>3. How long do cookies last for?</a>
+            <AnchorLink offset='100' href='#How'>
+              3. How long do cookies last for?
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#other'>
+            <AnchorLink offset='100' href='#other'>
               4. What other technologies are used to track my HUBX Site visits?
-            </a>
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#types'>5. What types of cookies do we use?</a>
+            <AnchorLink offset='100' href='#types'>
+              5. What types of cookies do we use?
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#else'>6. How else do we use cookies?</a>
+            <AnchorLink offset='100' href='#else'>
+              6. How else do we use cookies?
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#to'>7. How to control or delete cookies</a>
+            <AnchorLink offset='100' href='#to'>
+              7. How to control or delete cookies
+            </AnchorLink>
           </h1>
           <ol style={{ paddingLeft: 0 }}>
             <li>

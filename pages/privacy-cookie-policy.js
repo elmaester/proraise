@@ -61,7 +61,7 @@ const PrivacyCookiePolicyStyle = styled.div`
       flex-wrap: wrap;
       p {
         margin-top: 0;
-        width: calc(100% - 40px);
+        width: calc(100% - 50px);
       }
     }
   }

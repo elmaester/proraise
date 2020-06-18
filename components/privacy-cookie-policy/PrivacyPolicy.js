@@ -1,3 +1,4 @@
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 const PrivacyPolicy = () => {
   return (
     <>
@@ -12,37 +13,59 @@ const PrivacyPolicy = () => {
         <div class='table_of_content'>Table of Contents</div>{' '}
         <div>
           <h1>
-            <a href='#Introduction'>1. Introduction</a>
+            <AnchorLink offset='100' href='#Introduction'>
+              1. Introduction
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Collected'>2. Information Collected</a>
+            <AnchorLink offset='100' href='#Collected'>
+              2. Information Collected
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Use'>3. Use of Personal Information</a>
+            <AnchorLink offset='100' href='#Use'>
+              3. Use of Personal Information
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#How'>4. How to opt in or opt out of direct marketing</a>
+            <AnchorLink offset='100' href='#How'>
+              4. How to opt in or opt out of direct marketing
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Disclosures'>5. Disclosures</a>
+            <AnchorLink offset='100' href='#Disclosures'>
+              5. Disclosures
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Other'>6. Other Websites</a>
+            <AnchorLink offset='100' href='#Other'>
+              6. Other Websites
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Information'>7. Information security</a>
+            <AnchorLink offset='100' href='#Information'>
+              7. Information security
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Internet'>8. Internet-based Transfers</a>
+            <AnchorLink offset='100' href='#Internet'>
+              8. Internet-based Transfers
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Subject'>9. Subject Access Rights</a>
+            <AnchorLink offset='100' href='#Subject'>
+              9. Subject Access Rights
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Cookies'>10. Use of Cookies</a>
+            <AnchorLink offset='100' href='#Cookies'>
+              10. Use of Cookies
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Data'>11. Data Retention</a>
+            <AnchorLink offset='100' href='#Data'>
+              11. Data Retention
+            </AnchorLink>
           </h1>
           <ol style={{ paddingLeft: 0 }}>
             <li>

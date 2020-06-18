@@ -1,3 +1,4 @@
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 const TermsOfUse = () => {
   return (
     <>
@@ -14,66 +15,98 @@ const TermsOfUse = () => {
           <p>Version last updated: 17/04/2019</p>
           <h1>Section 1: Terms applicable to all users of the Platform</h1>
           <h1>
-            <a href='#General'>1. General</a>
+            <AnchorLink offset='100' href='#General'>
+              1. General
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Registration'>2. Registration</a>
+            <AnchorLink offset='100' href='#Registration'>
+              2. Registration
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Access'>3. Access to the Platform</a>
+            <AnchorLink offset='100' href='#Access'>
+              3. Access to the Platform
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Your'>4. Your Obligations</a>
+            <AnchorLink offset='100' href='#Your'>
+              4. Your Obligations
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Content'>5. Content provided through the Platforms</a>
+            <AnchorLink offset='100' href='#Content'>
+              5. Content provided through the Platforms
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Liability'>6. Liability</a>
+            <AnchorLink offset='100' href='#Liability'>
+              6. Liability
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Suspension'>7. Suspension and Termination</a>
+            <AnchorLink offset='100' href='#Suspension'>
+              7. Suspension and Termination
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Complaints'>8. Complaints</a>
+            <AnchorLink offset='100' href='#Complaints'>
+              8. Complaints
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Conflicts'>9. Conflicts of interest</a>
+            <AnchorLink offset='100' href='#Conflicts'>
+              9. Conflicts of interest
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Notices'>10. Notices</a>
+            <AnchorLink offset='100' href='#Notices'>
+              10. Notices
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Amendments'>
+            <AnchorLink offset='100' href='#Amendments'>
               11. Amendments to these User Terms and the Platform
-            </a>
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Miscellaneous'>12. Miscellaneous</a>
+            <AnchorLink offset='100' href='#Miscellaneous'>
+              12. Miscellaneous
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Definitions'>13. Definitions and Interpretation</a>
+            <AnchorLink offset='100' href='#Definitions'>
+              13. Definitions and Interpretation
+            </AnchorLink>
           </h1>
           <h1>
             Section 2: Additional terms applicable to Investors and their
             Advisors
           </h1>
           <h1>
-            <a href='#Applicability'>14. Applicability</a>
+            <AnchorLink offset='100' href='#Applicability'>
+              14. Applicability
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#The'>15. The Investment Service</a>
+            <AnchorLink offset='100' href='#The'>
+              15. The Investment Service
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Our'>
+            <AnchorLink offset='100' href='#Our'>
               16. Our Role in relation to Investment Opportunities
-            </a>
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Investment'>17. Investment Documents</a>
+            <AnchorLink offset='100' href='#Investment'>
+              17. Investment Documents
+            </AnchorLink>
           </h1>
           <h1>
-            <a href='#Potential'>18. Potential Sale of Investments</a>
+            <AnchorLink offset='100' href='#Potential'>
+              18. Potential Sale of Investments
+            </AnchorLink>
           </h1>
           <h1>
             <strong>
@@ -81,7 +114,6 @@ const TermsOfUse = () => {
             </strong>
           </h1>
           <h1>
-            <strong></strong>
             <strong id='General'>1. General</strong>
           </h1>
           <p>1.1</p>
