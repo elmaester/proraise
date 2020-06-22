@@ -11,6 +11,7 @@ import {
   forTabletLandscapeUp,
   forTabletPortraitUp,
   forDesktopUp,
+  forPhoneOnly,
 } from '../style';
 import Head from 'next/head';
 
@@ -97,6 +98,10 @@ const PrivacyCookiePolicyStyle = styled.div`
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #ececec;
+    @media (max-width: 320px) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
 
     .item {
       text-transform: uppercase;
@@ -124,6 +129,11 @@ const PrivacyCookiePolicyStyle = styled.div`
         font-weight: 600;
         text-align: center;
         display: inline-block;
+        @media (max-width: 320px) {
+          padding-left: 0px;
+          padding-right: 0px;
+          letter-spacing: -0.3px;
+        }
         &:hover {
           color: #1f7be8;
         }
