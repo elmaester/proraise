@@ -127,7 +127,7 @@ export default function Home() {
                   <BenefitSvgHolder>
                     <BenefitImage1 />
                   </BenefitSvgHolder>
-                  <p>Manage the fundraising process more easily</p>
+                  <p>Manage your fundraising more easily</p>
                 </BenefitContainer>
 
                 <BenefitContainer>
@@ -141,10 +141,7 @@ export default function Home() {
                   <BenefitSvgHolder>
                     <BenefitImage3 />
                   </BenefitSvgHolder>
-                  <p>
-                    Speed up the investment process and improve your success
-                    rate
-                  </p>
+                  <p>Speed up investment and improve your success rate</p>
                 </BenefitContainer>
               </BenefitTilesFacilitator>
             </SectionContainer>
@@ -238,7 +235,7 @@ export default function Home() {
                 Start your 1-month free trial
               </Button>
               <p style={{ fontSize: '11px', marginBottom: '0' }}>
-                *excl. VAT.{' '}
+                *excluding VAT.{' '}
                 <Link href='/privacy-cookie-policy'>
                   <a className='privacy-link'>View terms and conditions</a>
                 </Link>
