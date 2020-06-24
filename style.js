@@ -185,19 +185,25 @@ export const Button = styled.a`
       text-align: center;
     }
   }
+  &.larger-padding {
+    ${forPhoneOnly} {
+      padding: 17px 30px;
+    }
+    ${forTabletPortraitUp} {
+      padding: 17px 25px;
+    }
+  }
   &.free-trial-button {
     background-color: ${secondaryColor};
     color: #fff;
-    &:hover {
-      background-color: ${secondaryColorHover};
-    }
     ${forPhoneOnly} {
       margin-top: 30px;
-      padding-left: 30px;
-      padding-right: 30px;
     }
     ${forTabletPortraitUp} {
       margin-top: 40px;
+    }
+    &:hover {
+      background-color: ${secondaryColorHover};
     }
   }
 `;
@@ -373,6 +379,7 @@ export const BenefitContainer = styled.div`
   ${forTabletPortraitUp} {
     display: flex;
     align-items: center;
+    padding: 30px 36px;
   }
   ${forTabletLandscapeUp} {
     flex-direction: column;
@@ -511,12 +518,8 @@ export const TwoFeaturesPerRowFacilitator = styled.div`
 `;
 
 export const Anchor = styled.div`
-  display: none;
-  ${forTabletLandscapeUp} {
-    display: block;
-    transform: translateY(-130px);
-    &#top {
-      transform: translateY(-200px);
-    }
+  transform: translateY(-130px);
+  &#top {
+    transform: translateY(-200px);
   }
 `;

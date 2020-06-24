@@ -108,7 +108,7 @@ export default function Home() {
                 </p>
                 <Button
                   href={signUpLink}
-                  className='full-width-on-mobile centered-button'
+                  className='full-width-on-mobile centered-button larger-padding'
                 >
                   Start fundraising
                 </Button>
@@ -224,7 +224,7 @@ export default function Home() {
               </p>
               <Button
                 href={signUpLink}
-                className='full-width-on-mobile free-trial-button centered-button-always'
+                className='full-width-on-mobile free-trial-button centered-button-always larger-padding'
               >
                 Start your free trial
               </Button>
