@@ -148,6 +148,7 @@ export const Button = styled.a`
   padding: 14px 25px;
   font-size: 16px;
   text-transform: uppercase;
+  letter-spacing: 0.56px;
   &.centered-button {
     ${forTabletPortraitUp} {
       width: fit-content;
@@ -449,6 +450,9 @@ export const FeatureText = styled.div`
   }
   ${forTabletPortraitUp} {
     margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   ${forDesktopUp} {
     margin-left: 20px;

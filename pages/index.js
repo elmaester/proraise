@@ -76,7 +76,7 @@ export default function Home() {
                 Features
               </NavItem>
               <NavItem className='login-button'>Login</NavItem>
-              <Button>Sign up</Button>
+              <Button style={{ letterSpacing: 'normal' }}>Sign up</Button>
             </div>
           </NavBar>
 
