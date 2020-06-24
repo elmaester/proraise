@@ -7,10 +7,10 @@ export const forTabletLandscapeUp = '@media (min-width: 900px)';
 export const forDesktopUp = '@media (min-width: 1200px)';
 export const forBigDesktopUp = '@media (min-width: 1800px)';
 
-const mainColor = '#ff7702';
-const mainColorHover = '#e66b00';
-const secondaryColor = '#1f7be8';
-const secondaryColorHover = '#5e9fed';
+const mainColor = '#390153';
+const mainColorHover = '#57017e';
+const secondaryColor = '#56ccbd';
+const secondaryColorHover = '#35b1a0';
 
 export const whiteSpaceSidesMixin = `
   padding-left: 15px;
@@ -40,17 +40,27 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const PseudoLogo = styled(AnchorLink)`
-  color: ${mainColor};
+export const LogoContainer = styled(AnchorLink)`
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  ${forPhoneOnly} {
-    font-size: 24px;
+  img {
+    ${forPhoneOnly} {
+      height: 28px;
+    }
+    height: 40px;
   }
-  ${forTabletPortraitUp} {
-    font-size: 34px;
+`;
+
+export const PseudoLogo = styled.span`
+  color: ${mainColor};
+  font-size: 28px;
+  ${forPhoneOnly} {
+    font-size: 22px;
   }
   margin: 0;
-  font-weight: 300;
+  font-weight: 900;
+  margin-left: 5px;
 `;
 
 export const Header = styled.h2`
@@ -61,19 +71,30 @@ export const Header = styled.h2`
   font-weight: bold;
   text-align: center;
   &.left-aligned-header {
-    ${forTabletLandscapeUp} {
+    ${forTabletPortraitUp} {
       text-align: left;
-      margin-bottom: 25px;
     }
   }
-  margin: 30px 0;
-  ${forTabletPortraitUp} {
+  &.top-section-left-aligned {
+    ${forTabletLandscapeUp} {
+      text-align: left;
+    }
+
+    margin-bottom: 25px;
+  }
+  margin-top: 0;
+  margin-bottom: 40px;
+  ${forTabletLandscapeUp} {
     margin-bottom: 60px;
   }
-  color: ${(props) => props.color || 'inherit'};
+  color: ${(props) => props.color || mainColor};
 `;
 
 export const HeaderImageHolder = styled.div`
+  margin-bottom: 30px;
+  ${forTabletLandscapeUp} {
+    margin-bottom: 0;
+  }
   ${forTabletPortraitUp} {
     width: 270px;
     margin-left: auto;
@@ -83,7 +104,7 @@ export const HeaderImageHolder = styled.div`
     width: 357px;
     min-width: 357px;
     margin-left: 67px;
-    margin-top: 30px;
+    margin-bottom: 0px;
   }
   ${forDesktopUp} {
     margin-left: 80px;
@@ -122,10 +143,11 @@ export const GradientHeaderContainer = styled.div`
 export const Button = styled.a`
   ${forPhoneOnly} {
     padding: 11px 15px;
-    font-size: 14px;
+    font-size: 18px;
   }
   padding: 14px 25px;
   font-size: 16px;
+  text-transform: uppercase;
   &.centered-button {
     ${forTabletPortraitUp} {
       width: fit-content;
@@ -162,19 +184,18 @@ export const Button = styled.a`
     }
   }
   &.free-trial-button {
-    background-color: #fff;
-    color: #000;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+    background-color: ${secondaryColor};
+    color: #fff;
     &:hover {
-      background-color: #f2f2f2;
+      background-color: ${secondaryColorHover};
     }
     ${forPhoneOnly} {
       margin-top: 30px;
-      margin-bottom: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
     }
     ${forTabletPortraitUp} {
       margin-top: 40px;
-      margin-bottom: 40px;
     }
   }
 `;
@@ -195,6 +216,9 @@ export const NavBar = styled.nav`
   ${forPhoneOnly} {
     padding-top: 10px;
     padding-bottom: 10px;
+    a {
+      font-size: 14px;
+    }
   }
   ${forTabletPortraitUp} {
     padding-top: 15px;
@@ -204,7 +228,7 @@ export const NavBar = styled.nav`
 
 export const NavItem = styled(AnchorLink)`
   text-decoration: none;
-  color: #000;
+  color: ${mainColor};
   ${forPhoneOnly} {
     font-size: 14px;
   }
@@ -240,36 +264,34 @@ export const NavItem = styled(AnchorLink)`
 `;
 
 export const MainContainer = styled.div`
-  ${forPhoneOnly} {
-    margin-top: 60px;
-  }
-  ${forTabletPortraitUp} {
-    margin-top: 60px;
-  }
+  margin-top: 60px;
   ${forTabletLandscapeUp} {
-    margin-top: 84px;
+    margin-top: 118px;
+  }
+  ${forDesktopUp} {
+    margin-top: 125px;
   }
 `;
 
 export const SectionContainer = styled.section`
   ${whiteSpaceSidesMixin}
   ${forPhoneOnly} {
-    padding-top: 30px;
+    padding-top: 40px;
     padding-bottom: 30px;
   }
   ${forTabletPortraitUp} {
-    padding-top: 60px;
+    padding-top: 40px;
     padding-bottom: 60px;
   }
-  ${forDesktopUp} {
-    padding-top: 100px;
-    padding-bottom: 100px;
+  ${forTabletLandscapeUp} {
+    padding-top: 60px;
+    padding-bottom: 80px;
   }
   &.header-section {
     text-align: center;
     padding-top: 0;
     ${forTabletLandscapeUp} {
-      padding-bottom: 114px;
+      padding-bottom: 118px;
       display: flex;
       flex-direction: row-reverse;
       p {
@@ -277,42 +299,44 @@ export const SectionContainer = styled.section`
       }
     }
     ${forDesktopUp} {
-      padding-bottom: 125px;
+      padding-bottom: 145px;
     }
     .subsection-in-header {
+      color: ${mainColor};
       ${forTabletLandscapeUp} {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
       }
-      ${forDesktopUp} {
-        padding-top: 13px;
-      }
-      ${forBigDesktopUp} {
-        padding-top: 23px;
+      p {
+        line-height: 1.78;
+        margin-bottom: 25px;
+        font-size: 18px;
+        ${forTabletLandscapeUp} {
+          line-height: 1.8;
+        }
+        ${forDesktopUp} {
+          font-size: 20px;
+        }
       }
     }
   }
   &.last-section {
-    background-image: linear-gradient(321deg, #ff9b49, #ffc92b);
+    background-color: ${mainColor};
     color: #fff;
     text-align: center;
-    padding-bottom: 20px;
-    ${forPhoneOnly} {
-      padding-top: 60px;
-      p {
-        line-height: 1.63;
-      }
-    }
     ${forTabletPortraitUp} {
-      p {
-        line-height: 2;
-      }
+      padding-bottom: 60px;
     }
-    ${forTabletLandscapeUp} {
-      padding-top: 100px;
+    p {
+      font-size: 20px;
+      line-height: 1.8;
+      ${forTabletLandscapeUp} {
+        font-size: 26px;
+      }
     }
     h3 {
+      color: #fff;
       margin-top: 0;
       ${forPhoneOnly} {
         margin-bottom: 30px;
@@ -341,6 +365,9 @@ export const BenefitContainer = styled.div`
   background-color: #fff;
   padding: 30px;
   margin-bottom: 20px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
   ${forTabletPortraitUp} {
     display: flex;
     align-items: center;
@@ -351,18 +378,24 @@ export const BenefitContainer = styled.div`
     justify-content: space-around;
     width: 270px;
     height: 404px;
-    padding: 34px 43px 10px 43px;
+    padding: 64px 20px 30px 20px;
+    margin-bottom: 0;
   }
   ${forDesktopUp} {
     width: 300px;
+    padding: 64px 40px 30px 40px;
   }
   p {
+    color: ${mainColor};
     font-weight: bold;
+    font-size: 22px;
     ${forPhoneOnly} {
       text-align: center;
       margin-top: 20px;
       margin-bottom: 0;
-      font-size: 18px;
+    }
+    ${forTabletLandscapeUp} {
+      font-size: 26px;
     }
   }
 `;
@@ -383,7 +416,7 @@ export const BenefitSvgHolder = styled.div`
   ${forTabletPortraitUp} {
     width: 130px;
     min-width: 130px;
-    margin-right: 30px;
+    margin-right: 40px;
   }
   ${forTabletLandscapeUp} {
     margin-right: 0;
@@ -421,6 +454,7 @@ export const FeatureText = styled.div`
     margin-left: 20px;
   }
   h3 {
+    color: ${mainColor};
     ${forPhoneOnly} {
       margin: 0 0 8px 0;
       font-size: 18px;
@@ -472,13 +506,12 @@ export const TwoFeaturesPerRowFacilitator = styled.div`
 `;
 
 export const Anchor = styled.div`
-  ${forPhoneOnly} {
-    transform: translateY(-82px);
-  }
-  ${forTabletPortraitUp} {
-    transform: translateY(-136px);
-  }
-  ${forDesktopUp} {
-    transform: translateY(-176px);
+  display: none;
+  ${forTabletLandscapeUp} {
+    display: block;
+    transform: translateY(-130px);
+    &#top {
+      transform: translateY(-200px);
+    }
   }
 `;

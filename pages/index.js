@@ -15,11 +15,10 @@ import FeatureImage6 from './../svg/feature-6.svg';
 
 import {
   GlobalStyle,
+  LogoContainer,
   PseudoLogo,
   Header,
   HeaderImageHolder,
-  GradientHeader,
-  GradientHeaderContainer,
   Button,
   NavBar,
   NavItem,
@@ -65,7 +64,10 @@ export default function Home() {
       {authenticated ? (
         <>
           <NavBar className={scrollPosition < -20 && 'shadow-activated'}>
-            <PseudoLogo href='#top'>ProRaise</PseudoLogo>
+            <LogoContainer href='#top'>
+              <img src='/images/logo.png' />
+              <PseudoLogo>ProRaise</PseudoLogo>
+            </LogoContainer>
             <div>
               <NavItem className='hidden-on-mobile' href='#benefits'>
                 Benefits
@@ -87,20 +89,16 @@ export default function Home() {
                 <HeaderImage />
               </HeaderImageHolder>
               <div className='subsection-in-header'>
-                <Header className='left-aligned-header'>
-                  Helps founders raise capital more efficiently
+                <Header className='top-section-left-aligned'>
+                  Helps founders navigate the capital raising process simply
                 </Header>
-                <p
-                  style={{
-                    lineHeight: '2',
-                    marginBottom: '25px',
-                  }}
-                >
+                <p>
                   <span style={{ fontWeight: 'bold' }}>
-                    Scaling your business takes funding, which can be complex
-                    and time-consuming.
+                    Scaling your business may need funding from investors. This
+                    can be a time consuming and complex process.
                   </span>{' '}
-                  ProRaise helps you do it better.
+                  ProRaise helps you run your fundraising more efficiently,
+                  saving you time.
                 </p>
                 <Button className='full-width-on-mobile centered-button'>
                   Start fundraising
@@ -110,38 +108,30 @@ export default function Home() {
 
             {/* BENEFITS SECTION */}
 
-            <SectionContainer style={{ backgroundColor: '#e9eaec' }}>
+            <SectionContainer style={{ backgroundColor: '#ebf6f7' }}>
               <Anchor id='benefits' />
-              <GradientHeaderContainer>
-                <GradientHeader
-                  gradientFrom='#00f091'
-                  gradientTo='#009efb'
-                  angle='106'
-                >
-                  Benefits
-                </GradientHeader>
-              </GradientHeaderContainer>
+              <Header className='left-aligned-header'>Benefits</Header>
 
               <BenefitTilesFacilitator>
                 <BenefitContainer>
                   <BenefitSvgHolder>
                     <BenefitImage1 />
                   </BenefitSvgHolder>
-                  <p>Manage your fundraising more easily</p>
+                  <p>Navigate the complex capital raising process simply</p>
                 </BenefitContainer>
 
                 <BenefitContainer>
                   <BenefitSvgHolder>
                     <BenefitImage2 />
                   </BenefitSvgHolder>
-                  <p>Present your company in a way investors love</p>
+                  <p>Present your company professionally to investors</p>
                 </BenefitContainer>
 
                 <BenefitContainer>
                   <BenefitSvgHolder>
                     <BenefitImage3 />
                   </BenefitSvgHolder>
-                  <p>Speed up investment and improve your success rate</p>
+                  <p>Be investment ready and accelerate your capital raise</p>
                 </BenefitContainer>
               </BenefitTilesFacilitator>
             </SectionContainer>
@@ -150,15 +140,7 @@ export default function Home() {
 
             <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
               <Anchor id='features' />
-              <GradientHeaderContainer>
-                <GradientHeader
-                  gradientFrom='#ff9b49'
-                  gradientTo='#ffc92b'
-                  angle='285'
-                >
-                  Features
-                </GradientHeader>
-              </GradientHeaderContainer>
+              <Header className='left-aligned-header'>Features</Header>
 
               <TwoFeaturesPerRowFacilitator>
                 <FeatureItemContainer>
@@ -177,7 +159,7 @@ export default function Home() {
                   </FeatureImageCircleContainer>
                   <FeatureText>
                     <h3>Set up your deal</h3>
-                    <p>Clear, simple and done in minutes</p>
+                    <p>Clear and professional, done within minutes</p>
                   </FeatureText>
                 </FeatureItemContainer>
 
@@ -187,7 +169,7 @@ export default function Home() {
                   </FeatureImageCircleContainer>
                   <FeatureText>
                     <h3>Share with your network</h3>
-                    <p>The fastest way to engage with investors</p>
+                    <p>Fast and simple way to engage with investors</p>
                   </FeatureText>
                 </FeatureItemContainer>
 
@@ -196,8 +178,8 @@ export default function Home() {
                     <FeatureImage4 />
                   </FeatureImageCircleContainer>
                   <FeatureText>
-                    <h3>Secure dataroom access</h3>
-                    <p>It's easy to set up and manage</p>
+                    <h3>Secure dataroom</h3>
+                    <p>Easy to set up and manage permissions</p>
                   </FeatureText>
                 </FeatureItemContainer>
 
@@ -206,8 +188,8 @@ export default function Home() {
                     <FeatureImage5 />
                   </FeatureImageCircleContainer>
                   <FeatureText>
-                    <h3>Improve your success rate</h3>
-                    <p>Get investor feedback and insight</p>
+                    <h3>Gain feedback and insight</h3>
+                    <p>Receive helpful feedback and insights</p>
                   </FeatureText>
                 </FeatureItemContainer>
 
@@ -216,8 +198,8 @@ export default function Home() {
                     <FeatureImage6 />
                   </FeatureImageCircleContainer>
                   <FeatureText>
-                    <h3>Track interest</h3>
-                    <p>With instant status updates</p>
+                    <h3>Track interests</h3>
+                    <p>Instant status update</p>
                   </FeatureText>
                 </FeatureItemContainer>
               </TwoFeaturesPerRowFacilitator>
@@ -226,20 +208,20 @@ export default function Home() {
             {/* LAST SECTION */}
 
             <SectionContainer className='last-section'>
-              <Header as='h3'>Start your free one-month trial</Header>
+              <Header as='h3'>Get started on a 1 month free trial!</Header>
               <p style={{ fontWeight: 'bold' }}>
-                Just £50 a month*, there's no contract and you can cancel any
-                time
+                After that, it is £50 + VAT per month and you can cancel
+                anytime!
               </p>
               <Button className='full-width-on-mobile free-trial-button centered-button-always'>
-                Start your 1-month free trial
+                Start your free trial
               </Button>
-              <p style={{ fontSize: '11px', marginBottom: '0' }}>
+              {/* <p style={{ fontSize: '11px', marginBottom: '0' }}>
                 *excluding VAT.{' '}
                 <Link href='/privacy-cookie-policy'>
                   <a className='privacy-link'>View terms and conditions</a>
                 </Link>
-              </p>
+              </p> */}
             </SectionContainer>
           </MainContainer>
         </>
