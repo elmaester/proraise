@@ -141,6 +141,7 @@ export const GradientHeaderContainer = styled.div`
 `;
 
 export const Button = styled.a`
+  text-decoration: none;
   ${forPhoneOnly} {
     padding: 11px 15px;
     font-size: 18px;

@@ -48,6 +48,8 @@ export default function Home() {
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollPosition(currPos.y);
   });
+  const signUpLink = 'https://demo.hubx.capital/register/founders';
+  const logInLink = 'https://demo.hubx.capital';
 
   return (
     <>
@@ -75,8 +77,12 @@ export default function Home() {
               <NavItem className='hidden-on-mobile' href='#features'>
                 Features
               </NavItem>
-              <NavItem className='login-button'>Login</NavItem>
-              <Button style={{ letterSpacing: 'normal' }}>Sign up</Button>
+              <NavItem as='a' href={logInLink} className='login-button'>
+                Login
+              </NavItem>
+              <Button href={signUpLink} style={{ letterSpacing: 'normal' }}>
+                Sign up
+              </Button>
             </div>
           </NavBar>
 
@@ -100,7 +106,10 @@ export default function Home() {
                   ProRaise helps you run your fundraising more efficiently,
                   saving you time.
                 </p>
-                <Button className='full-width-on-mobile centered-button'>
+                <Button
+                  href={signUpLink}
+                  className='full-width-on-mobile centered-button'
+                >
                   Start fundraising
                 </Button>
               </div>
@@ -213,7 +222,10 @@ export default function Home() {
                 After that, it is £50 + VAT per month and you can cancel
                 anytime!
               </p>
-              <Button className='full-width-on-mobile free-trial-button centered-button-always'>
+              <Button
+                href={signUpLink}
+                className='full-width-on-mobile free-trial-button centered-button-always'
+              >
                 Start your free trial
               </Button>
               {/* <p style={{ fontSize: '11px', marginBottom: '0' }}>
