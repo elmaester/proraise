@@ -48,8 +48,8 @@ export default function Home() {
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollPosition(currPos.y);
   });
-  const signUpLink = 'https://demo.hubx.capital/register/founders';
-  const logInLink = 'https://demo.hubx.capital';
+  const signUpLink = 'https://demo.proraise.co/register/founders';
+  const logInLink = 'https://demo.proraise.co';
 
   return (
     <>
