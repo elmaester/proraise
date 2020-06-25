@@ -101,7 +101,7 @@ export default function Home() {
                 <p>
                   <span style={{ fontWeight: 'bold' }}>
                     Scaling your business may need funding from investors. This
-                    can be a time consuming and complex process.
+                    can be time consuming and complex.
                   </span>{' '}
                   ProRaise helps you run your fundraising more efficiently,
                   saving you time.
@@ -178,7 +178,7 @@ export default function Home() {
                   </FeatureImageCircleContainer>
                   <FeatureText>
                     <h3>Share with your network</h3>
-                    <p>Fast and simple way to engage with investors</p>
+                    <p>Fast and simple to engage with investors</p>
                   </FeatureText>
                 </FeatureItemContainer>
 
@@ -198,7 +198,7 @@ export default function Home() {
                   </FeatureImageCircleContainer>
                   <FeatureText>
                     <h3>Gain feedback and insight</h3>
-                    <p>Receive helpful feedback and insights</p>
+                    <p>Monitor engagement levels</p>
                   </FeatureText>
                 </FeatureItemContainer>
 
@@ -208,7 +208,7 @@ export default function Home() {
                   </FeatureImageCircleContainer>
                   <FeatureText>
                     <h3>Track interests</h3>
-                    <p>Instant status update</p>
+                    <p>Instant status updates</p>
                   </FeatureText>
                 </FeatureItemContainer>
               </TwoFeaturesPerRowFacilitator>
@@ -217,10 +217,9 @@ export default function Home() {
             {/* LAST SECTION */}
 
             <SectionContainer className='last-section'>
-              <Header as='h3'>Get started on a 1 month free trial!</Header>
+              <Header as='h3'>Get started on a 1 month free trial</Header>
               <p style={{ fontWeight: 'bold' }}>
-                After that, it is £50 + VAT per month and you can cancel
-                anytime!
+                After that, it is £50 + VAT per month and you can cancel anytime
               </p>
               <Button
                 href={signUpLink}
