@@ -225,7 +225,7 @@ export const NavBar = styled.nav`
     padding-top: 10px;
     padding-bottom: 10px;
     a {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
   ${forTabletPortraitUp} {
@@ -238,10 +238,10 @@ export const NavItem = styled(AnchorLink)`
   text-decoration: none;
   color: ${mainColor};
   ${forPhoneOnly} {
-    font-size: 14px;
+    font-size: 16px;
   }
   ${forTabletPortraitUp} {
-    font-size: 16px;
+    font-size: 18px;
   }
   font-weight: bold;
   font-family: Nunito;
