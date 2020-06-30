@@ -359,7 +359,7 @@ export const SectionContainer = styled.section`
       font-size: 11px;
       margin-top: 30px;
       margin-bottom: 0;
-      display: block;
+      display: inline-block;
       transition: 0.3s ease-in-out;
       &:hover {
         font-weight: bold;
