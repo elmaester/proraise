@@ -174,7 +174,7 @@ export const Button = styled.a`
   border-radius: 5px;
   font-family: Nunito;
   font-weight: bold;
-  transition: 0.25s;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
   &:hover {
     background-color: ${mainColorHover};
@@ -333,9 +333,7 @@ export const SectionContainer = styled.section`
     background-color: ${mainColor};
     color: #fff;
     text-align: center;
-    ${forTabletPortraitUp} {
-      padding-bottom: 60px;
-    }
+    padding-bottom: 20px;
     p {
       font-size: 20px;
       line-height: 1.8;
@@ -358,7 +356,11 @@ export const SectionContainer = styled.section`
     }
     a.privacy-link {
       color: #fff;
-      text-decoration: none;
+      font-size: 11px;
+      margin-top: 30px;
+      margin-bottom: 0;
+      display: block;
+      transition: 0.3s ease-in-out;
       &:hover {
         font-weight: bold;
       }

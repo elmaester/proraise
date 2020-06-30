@@ -227,12 +227,9 @@ export default function Home() {
               >
                 Start your free trial
               </Button>
-              {/* <p style={{ fontSize: '11px', marginBottom: '0' }}>
-                *excluding VAT.{' '}
-                <Link href='/privacy-cookie-policy'>
-                  <a className='privacy-link'>View terms and conditions</a>
-                </Link>
-              </p> */}
+              <Link href='/privacy-cookie-policy'>
+                <a className='privacy-link'>Cookie and Privacy policies</a>
+              </Link>
             </SectionContainer>
           </MainContainer>
         </>
