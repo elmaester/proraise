@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import React from 'react';
-import Link from 'next/link';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import HeaderImage from './../svg/header-image.svg';
 import BenefitImage1 from './../svg/benefit-1.svg';

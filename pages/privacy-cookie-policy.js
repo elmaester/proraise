@@ -1,21 +1,16 @@
 import styled from 'styled-components';
 import PrivacyPolicy from '../components/privacy-cookie-policy/PrivacyPolicy';
 import CookiePolicy from '../components/privacy-cookie-policy/CookiePolicy';
-import Link from 'next/link';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import React, { useState } from 'react';
 import {
   GlobalStyle,
   whiteSpaceSidesMixin,
   mainColor,
-  mainColorHover,
   secondaryColor,
   secondaryColorHover,
   grey,
   blueyGrey,
-  forTabletLandscapeUp,
-  forTabletPortraitUp,
-  forDesktopUp,
   forPhoneOnly,
   LogoContainer,
   PseudoLogo,
