@@ -227,9 +227,13 @@ export default function Home() {
               >
                 Start your free trial
               </Button>
-              <Link href='/privacy-cookie-policy'>
-                <a className='privacy-link'>Cookie and Privacy policies</a>
-              </Link>
+              <a
+                className='privacy-link'
+                href='/privacy-cookie-policy'
+                target='_blank'
+              >
+                Cookie and Privacy policies
+              </a>
             </SectionContainer>
           </MainContainer>
         </>

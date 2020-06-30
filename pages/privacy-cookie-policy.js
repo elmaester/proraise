@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import TermsOfUse from '../components/privacy-cookie-policy/TermsOfUse';
 import PrivacyPolicy from '../components/privacy-cookie-policy/PrivacyPolicy';
 import CookiePolicy from '../components/privacy-cookie-policy/CookiePolicy';
 import Link from 'next/link';
@@ -8,25 +7,112 @@ import React, { useState } from 'react';
 import {
   GlobalStyle,
   whiteSpaceSidesMixin,
+  mainColor,
+  mainColorHover,
+  secondaryColor,
+  secondaryColorHover,
+  grey,
+  blueyGrey,
   forTabletLandscapeUp,
   forTabletPortraitUp,
   forDesktopUp,
   forPhoneOnly,
+  LogoContainer,
+  PseudoLogo,
 } from '../style';
 import Head from 'next/head';
 
+export const offsetValue = 65;
+
+export const Divider = styled.hr`
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: ${grey};
+`;
+
+const PageTitle = styled.h1`
+  font-size: 24px;
+  color: ${mainColor};
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+`;
+
 const PrivacyCookiePolicyStyle = styled.div`
   ${whiteSpaceSidesMixin}
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12.6px;
-  padding-top: 27px;
+  background-color: #fafbfd;
+  font-family: 'Nunito', sans-serif;
+
+  .nav-container {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+  }
+
+  .legal-page__navigation {
+    display: flex;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    padding: 0 30px;
+    ${forPhoneOnly} {
+      justify-content: space-around;
+    }
+
+    .item {
+      &:not(:last-of-type) {
+        margin-right: 30px;
+      }
+      &.selected a {
+        border-bottom: 1px solid ${secondaryColor};
+        color: ${secondaryColor};
+      }
+      a {
+        text-decoration: none;
+        padding: 20px 0;
+        font-size: 14px;
+        color: ${blueyGrey};
+        cursor: pointer;
+        transition: unset;
+        font-weight: 600;
+        text-align: center;
+        display: inline-block;
+        transition: 0.3s ease-in-out;
+        @media (max-width: 320px) {
+          padding-left: 0px;
+          padding-right: 0px;
+          letter-spacing: -0.3px;
+        }
+        &:hover {
+          color: ${secondaryColor};
+        }
+      }
+    }
+  }
+`;
+
+const InnerContainer = styled.div`
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  padding-top: 30px;
   padding-bottom: 90px;
+  padding-left: 30px;
+  padding-right: 30px;
+  ${forPhoneOnly} {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   line-height: 1.42857143;
+  background-color: #fff;
+
+  #info {
+    color: ${blueyGrey};
+  }
 
   a,
   p,
   h1 {
-    font-size: 12.6px;
+    font-size: 14px;
   }
 
   p {
@@ -36,17 +122,19 @@ const PrivacyCookiePolicyStyle = styled.div`
   }
 
   h1 {
-    margin: 20px 0;
-    font-weight: 500;
+    margin: 0;
+    line-height: 30px;
+    font-weight: bold;
+    color: ${mainColor};
   }
 
   a {
     text-decoration: none;
-    color: #1f7be8;
+    color: ${secondaryColor};
     transition: 0.3s all ease-in-out;
-    font-weight: 500;
+    font-weight: bold;
     &:hover {
-      color: #004699;
+      color: ${secondaryColorHover};
     }
   }
 
@@ -55,7 +143,7 @@ const PrivacyCookiePolicyStyle = styled.div`
     list-style: none;
     width: 100%;
     span {
-      width: 25px;
+      padding-right: 5px;
     }
     li {
       display: flex;
@@ -74,76 +162,15 @@ const PrivacyCookiePolicyStyle = styled.div`
   }
 
   .legal-page__content--title {
-    font-size: 14.4px;
-    margin-top: 47px;
-    font-weight: bold;
-  }
-
-  .nav-container {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    padding-top: 27px;
-  }
-
-  .home-button {
+    font-size: 24px;
+    margin-top: 0px;
     margin-bottom: 10px;
-    a {
-      padding: 11.7px 10.8px 9px;
-      text-transform: uppercase;
-    }
-  }
-
-  .legal-page__navigation {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ececec;
-    @media (max-width: 320px) {
-      padding-left: 5px;
-      padding-right: 5px;
-    }
-
-    .item {
-      text-transform: uppercase;
-      &:last-of-type {
-        ${forTabletPortraitUp} {
-          margin-right: 35px;
-        }
-        ${forTabletLandscapeUp} {
-          margin-right: 50px;
-        }
-        ${forDesktopUp} {
-          margin-right: 100px;
-        }
-      }
-      &.selected a {
-        border-bottom: 1px solid #1f7be8;
-        color: #1f7be8;
-      }
-      a {
-        padding: 11.7px 10.8px 9px;
-        font-size: 10.8px;
-        color: #434a54;
-        cursor: pointer;
-        transition: unset;
-        font-weight: 600;
-        text-align: center;
-        display: inline-block;
-        @media (max-width: 320px) {
-          padding-left: 0px;
-          padding-right: 0px;
-          letter-spacing: -0.3px;
-        }
-        &:hover {
-          color: #1f7be8;
-        }
-      }
-    }
+    font-weight: bold;
   }
 `;
 
 export default function privacyCookiePolicy() {
-  const [selectedTab, setSelectedTab] = useState('Terms of Use');
+  const [selectedTab, setSelectedTab] = useState('Privacy Policy');
 
   return (
     <>
@@ -152,33 +179,25 @@ export default function privacyCookiePolicy() {
         <title>ProRaise{` - ${selectedTab}`}</title>
         <link rel='icon' href='/favicon.ico' />
         <link
-          href='//fonts.googleapis.com/css?family=Montserrat:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i'
+          href='https://fonts.googleapis.com/css2?family=Nunito&display=swap'
           rel='stylesheet'
         ></link>
       </Head>
 
       <PrivacyCookiePolicyStyle id='top'>
+        <LogoContainer
+          style={{
+            paddingTop: '20px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <img style={{ height: '28px' }} src='/images/logo.png' />
+          <PseudoLogo style={{ fontSize: '24px' }}>ProRaise</PseudoLogo>
+        </LogoContainer>
+        <PageTitle>Privacy and Cookie Policies</PageTitle>
         <div className='nav-container'>
-          <div className='home-button'>
-            <Link href='/'>
-              <a>Home</a>
-            </Link>
-          </div>
           <div class='legal-page__navigation'>
-            <div
-              className={`item${
-                selectedTab === 'Terms of Use' ? ' selected' : ''
-              }`}
-            >
-              <AnchorLink
-                href='#top'
-                onClick={() => {
-                  setSelectedTab('Terms of Use');
-                }}
-              >
-                Terms of Use
-              </AnchorLink>
-            </div>{' '}
             <div
               className={`item${
                 selectedTab === 'Privacy Policy' ? ' selected' : ''
@@ -192,7 +211,7 @@ export default function privacyCookiePolicy() {
               >
                 Privacy Policy
               </AnchorLink>
-            </div>{' '}
+            </div>
             <div
               className={`item${
                 selectedTab === 'Cookie Policy' ? ' selected' : ''
@@ -209,9 +228,14 @@ export default function privacyCookiePolicy() {
             </div>
           </div>
         </div>
-        {selectedTab === 'Terms of Use' && <TermsOfUse />}
-        {selectedTab === 'Privacy Policy' && <PrivacyPolicy />}
-        {selectedTab === 'Cookie Policy' && <CookiePolicy />}
+        <InnerContainer>
+          {selectedTab === 'Privacy Policy' && <PrivacyPolicy />}
+          {selectedTab === 'Cookie Policy' && (
+            <CookiePolicy
+              goToPrivacy={() => setSelectedTab('Privacy Policy')}
+            />
+          )}
+        </InnerContainer>
       </PrivacyCookiePolicyStyle>
     </>
   );

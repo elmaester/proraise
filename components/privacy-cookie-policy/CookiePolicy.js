@@ -1,5 +1,7 @@
 import AnchorLink from 'react-anchor-link-smooth-scroll';
-const CookiePolicy = () => {
+import { Divider, offsetValue } from '../../pages/privacy-cookie-policy';
+
+const CookiePolicy = ({ goToPrivacy }) => {
   return (
     <>
       <div class='legal-page__content'>
@@ -9,41 +11,41 @@ const CookiePolicy = () => {
             This platform is operated by the Hub Exchange Limited. By
             registering as a new member, you agree to this Agreement.
           </div>
-        </div>{' '}
-        <div class='table_of_content'>Table of Contents</div>{' '}
+          <Divider />
+        </div>
         <div>
           <h1>
-            <AnchorLink offset='100' href='#Introduction'>
+            <AnchorLink offset={offsetValue} href='#Introduction'>
               1. Introduction
             </AnchorLink>
           </h1>
           <h1>
-            <AnchorLink offset='100' href='#What'>
+            <AnchorLink offset={offsetValue} href='#What'>
               2. What is a cookie?
             </AnchorLink>
           </h1>
           <h1>
-            <AnchorLink offset='100' href='#How'>
+            <AnchorLink offset={offsetValue} href='#How'>
               3. How long do cookies last for?
             </AnchorLink>
           </h1>
           <h1>
-            <AnchorLink offset='100' href='#other'>
+            <AnchorLink offset={offsetValue} href='#other'>
               4. What other technologies are used to track my HUBX Site visits?
             </AnchorLink>
           </h1>
           <h1>
-            <AnchorLink offset='100' href='#types'>
+            <AnchorLink offset={offsetValue} href='#types'>
               5. What types of cookies do we use?
             </AnchorLink>
           </h1>
           <h1>
-            <AnchorLink offset='100' href='#else'>
+            <AnchorLink offset={offsetValue} href='#else'>
               6. How else do we use cookies?
             </AnchorLink>
           </h1>
           <h1>
-            <AnchorLink offset='100' href='#to'>
+            <AnchorLink offset={offsetValue} href='#to'>
               7. How to control or delete cookies
             </AnchorLink>
           </h1>
@@ -56,22 +58,24 @@ const CookiePolicy = () => {
                 <li>
                   <span>1.1</span>
                   <p>
-                    This cookies policy ("<b>Policy</b>") applies to our website
-                    at <a href='https://hubx.capital'>https://hubx.capital</a>{' '}
-                    ("<b>Website</b>"), our mobile application ("<b>App</b>")
-                    and to any websites, branded pages on third party platforms
-                    (such as LinkedIn or Twitter) and applications accessed or
-                    used through such websites or third-party platforms (“
-                    <b>the HUBX Sites</b>”), which are operated by or on behalf
-                    of The Hub Exchange Limited, its subsidiaries and/or
-                    affiliated companies (hereinafter, "<b>we</b>", "<b>us</b>",
-                    "<b>our</b>"). This Policy sets out how we collect and
-                    process information about you on the HUBX Sites through the
-                    use of cookies. We use the term "cookies" in this Policy to
-                    refer to cookies and similar technologies that may collect
-                    information automatically when you visit the HUBX Sites
-                    (such as pixel tags, web beacons, device IDs and similar
-                    technologies).
+                    This cookies policy <strong>(“Policy")</strong> applies to
+                    our website at{' '}
+                    <a href='https://hubx.capital'>https://hubx.capital</a>{' '}
+                    <strong>(“Website")</strong>, our mobile application{' '}
+                    <strong>(“App")</strong> and to any websites, branded pages
+                    on third party platforms (such as LinkedIn or Twitter) and
+                    applications accessed or used through such websites or
+                    third-party platforms (“<strong>the HUBX Sites</strong>”),
+                    which are operated by or on behalf of The Hub Exchange
+                    Limited, its subsidiaries and/or affiliated companies
+                    (hereinafter, "<strong>we</strong>", "<strong>us</strong>",
+                    "<strong>our")</strong>. This Policy sets out how we collect
+                    and process information about you on the HUBX Sites through
+                    the use of cookies. We use the term "cookies" in this Policy
+                    to refer to cookies and similar technologies that may
+                    collect information automatically when you visit the HUBX
+                    Sites (such as pixel tags, web beacons, device IDs and
+                    similar technologies).
                   </p>
                 </li>
                 <li>
@@ -269,7 +273,11 @@ const CookiePolicy = () => {
                   <span>6.1</span>
                   <p>
                     For further details about how we use information collected
-                    by cookies, please see our Privacy Policy.
+                    by cookies, please see our{' '}
+                    <AnchorLink href='#top' onClick={() => goToPrivacy()}>
+                      Privacy Policy
+                    </AnchorLink>
+                    .
                   </p>
                 </li>
               </ol>

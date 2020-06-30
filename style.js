@@ -7,10 +7,12 @@ export const forTabletLandscapeUp = '@media (min-width: 900px)';
 export const forDesktopUp = '@media (min-width: 1200px)';
 export const forBigDesktopUp = '@media (min-width: 1800px)';
 
-const mainColor = '#390153';
-const mainColorHover = '#57017e';
-const secondaryColor = '#56ccbd';
-const secondaryColorHover = '#35b1a0';
+export const mainColor = '#390153';
+export const mainColorHover = '#57017e';
+export const secondaryColor = '#56ccbd';
+export const secondaryColorHover = '#35b1a0';
+export const grey = '#dae0e8';
+export const blueyGrey = '#99a1ab';
 
 export const whiteSpaceSidesMixin = `
   padding-left: 15px;
