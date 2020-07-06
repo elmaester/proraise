@@ -47,8 +47,8 @@ export default function Home() {
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollPosition(currPos.y);
   });
-  const signUpLink = 'https://demo.proraise.co/register/founders';
-  const logInLink = 'https://demo.proraise.co';
+  const signUpLink = 'https://go.proraise.co/register/founders';
+  const logInLink = 'https://go.proraise.co';
 
   return (
     <>
