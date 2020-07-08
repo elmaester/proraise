@@ -95,15 +95,15 @@ export default function Home() {
               </HeaderImageHolder>
               <div className='subsection-in-header'>
                 <Header className='top-section-left-aligned'>
-                  Helps founders navigate the capital raising process simply
+                  Better fundraising for founders
                 </Header>
                 <p>
                   <span style={{ fontWeight: 'bold' }}>
-                    Scaling your business may need funding from investors. This
+                    Scaling your business may need funding from investors which
                     can be time consuming and complex.
                   </span>{' '}
                   ProRaise helps you run your fundraising more efficiently,
-                  saving you time.
+                  saving you time
                 </p>
                 <Button
                   href={signUpLink}
