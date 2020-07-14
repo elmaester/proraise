@@ -33,17 +33,17 @@ import {
   Anchor,
 } from '../style';
 
-import PasswordWall from '../components/PasswordWall';
-import { reactLocalStorage } from 'reactjs-localstorage';
+// import PasswordWall from '../components/PasswordWall';
+// import { reactLocalStorage } from 'reactjs-localstorage';
 
 export default function Home() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
-  const [authenticated, setAuthenticated] = React.useState(false);
-  const [loaded, setLoaded] = React.useState(false);
-  React.useEffect(() => {
-    if (reactLocalStorage.get('authenticated')) setAuthenticated(true);
-    setLoaded(true);
-  });
+  // const [authenticated, setAuthenticated] = React.useState(false);
+  // const [loaded, setLoaded] = React.useState(false);
+  // React.useEffect(() => {
+  //   if (reactLocalStorage.get('authenticated')) setAuthenticated(true);
+  //   setLoaded(true);
+  // });
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollPosition(currPos.y);
   });
@@ -62,180 +62,180 @@ export default function Home() {
         />
       </Head>
 
-      {authenticated ? (
-        <>
-          <NavBar className={scrollPosition < -20 && 'shadow-activated'}>
-            <LogoContainer href='#top'>
-              <img src='/images/logo.png' />
-              <PseudoLogo>ProRaise</PseudoLogo>
-            </LogoContainer>
-            <div>
-              <NavItem className='hidden-on-mobile' href='#benefits'>
-                Benefits
-              </NavItem>
-              <NavItem className='hidden-on-mobile' href='#features'>
-                Features
-              </NavItem>
-              <NavItem as='a' href={logInLink} className='login-button'>
-                Login
-              </NavItem>
-              <Button href={signUpLink} style={{ letterSpacing: 'normal' }}>
-                Sign up
-              </Button>
-            </div>
-          </NavBar>
+      {/* {authenticated ? (
+        <> */}
+      <NavBar className={scrollPosition < -20 && 'shadow-activated'}>
+        <LogoContainer href='#top'>
+          <img src='/images/logo.png' />
+          <PseudoLogo>ProRaise</PseudoLogo>
+        </LogoContainer>
+        <div>
+          <NavItem className='hidden-on-mobile' href='#benefits'>
+            Benefits
+          </NavItem>
+          <NavItem className='hidden-on-mobile' href='#features'>
+            Features
+          </NavItem>
+          <NavItem as='a' href={logInLink} className='login-button'>
+            Login
+          </NavItem>
+          <Button href={signUpLink} style={{ letterSpacing: 'normal' }}>
+            Sign up
+          </Button>
+        </div>
+      </NavBar>
 
-          <MainContainer>
-            <Anchor id='top' />
-            {/* HEADER SECTION */}
+      <MainContainer>
+        <Anchor id='top' />
+        {/* HEADER SECTION */}
 
-            <SectionContainer className='header-section'>
-              <HeaderImageHolder>
-                <HeaderImage />
-              </HeaderImageHolder>
-              <div className='subsection-in-header'>
-                <Header className='top-section-left-aligned'>
-                  Better fundraising for founders
-                </Header>
-                <p>
-                  <span style={{ fontWeight: 'bold' }}>
-                    Scaling your business may need funding from investors which
-                    can be time consuming and complex.
-                  </span>{' '}
-                  ProRaise helps you run your fundraising more efficiently,
-                  saving you time
-                </p>
-                <Button
-                  href={signUpLink}
-                  className='full-width-on-mobile centered-button larger-padding'
-                >
-                  Start fundraising
-                </Button>
-              </div>
-            </SectionContainer>
+        <SectionContainer className='header-section'>
+          <HeaderImageHolder>
+            <HeaderImage />
+          </HeaderImageHolder>
+          <div className='subsection-in-header'>
+            <Header className='top-section-left-aligned'>
+              Better fundraising for founders
+            </Header>
+            <p>
+              <span style={{ fontWeight: 'bold' }}>
+                Scaling your business may need funding from investors which can
+                be time consuming and complex.
+              </span>{' '}
+              ProRaise helps you run your fundraising more efficiently, saving
+              you time
+            </p>
+            <Button
+              href={signUpLink}
+              className='full-width-on-mobile centered-button larger-padding'
+            >
+              Start fundraising
+            </Button>
+          </div>
+        </SectionContainer>
 
-            {/* BENEFITS SECTION */}
+        {/* BENEFITS SECTION */}
 
-            <SectionContainer style={{ backgroundColor: '#ebf6f7' }}>
-              <Anchor id='benefits' />
-              <Header className='left-aligned-header'>Benefits</Header>
+        <SectionContainer style={{ backgroundColor: '#ebf6f7' }}>
+          <Anchor id='benefits' />
+          <Header className='left-aligned-header'>Benefits</Header>
 
-              <BenefitTilesFacilitator>
-                <BenefitContainer>
-                  <BenefitSvgHolder>
-                    <BenefitImage1 />
-                  </BenefitSvgHolder>
-                  <p>Navigate the complex capital raising process simply</p>
-                </BenefitContainer>
+          <BenefitTilesFacilitator>
+            <BenefitContainer>
+              <BenefitSvgHolder>
+                <BenefitImage1 />
+              </BenefitSvgHolder>
+              <p>Navigate the complex capital raising process simply</p>
+            </BenefitContainer>
 
-                <BenefitContainer>
-                  <BenefitSvgHolder>
-                    <BenefitImage2 />
-                  </BenefitSvgHolder>
-                  <p>Present your company professionally to investors</p>
-                </BenefitContainer>
+            <BenefitContainer>
+              <BenefitSvgHolder>
+                <BenefitImage2 />
+              </BenefitSvgHolder>
+              <p>Present your company professionally to investors</p>
+            </BenefitContainer>
 
-                <BenefitContainer>
-                  <BenefitSvgHolder>
-                    <BenefitImage3 />
-                  </BenefitSvgHolder>
-                  <p>Be investment ready and accelerate your capital raise</p>
-                </BenefitContainer>
-              </BenefitTilesFacilitator>
-            </SectionContainer>
+            <BenefitContainer>
+              <BenefitSvgHolder>
+                <BenefitImage3 />
+              </BenefitSvgHolder>
+              <p>Be investment ready and accelerate your capital raise</p>
+            </BenefitContainer>
+          </BenefitTilesFacilitator>
+        </SectionContainer>
 
-            {/* FEATURES SECTION */}
+        {/* FEATURES SECTION */}
 
-            <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
-              <Anchor id='features' />
-              <Header className='left-aligned-header'>Features</Header>
+        <SectionContainer style={{ backgroundColor: '#fafbfd' }}>
+          <Anchor id='features' />
+          <Header className='left-aligned-header'>Features</Header>
 
-              <TwoFeaturesPerRowFacilitator>
-                <FeatureItemContainer>
-                  <FeatureImageCircleContainer>
-                    <FeatureImage1 />
-                  </FeatureImageCircleContainer>
-                  <FeatureText>
-                    <h3>Create your pitch</h3>
-                    <p>Present your company professionally</p>
-                  </FeatureText>
-                </FeatureItemContainer>
+          <TwoFeaturesPerRowFacilitator>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage1 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Create your pitch</h3>
+                <p>Present your company professionally</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-                <FeatureItemContainer>
-                  <FeatureImageCircleContainer>
-                    <FeatureImage2 />
-                  </FeatureImageCircleContainer>
-                  <FeatureText>
-                    <h3>Set up your deal</h3>
-                    <p>Clear and professional, done within minutes</p>
-                  </FeatureText>
-                </FeatureItemContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage2 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Set up your deal</h3>
+                <p>Clear and professional, done within minutes</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-                <FeatureItemContainer>
-                  <FeatureImageCircleContainer>
-                    <FeatureImage3 />
-                  </FeatureImageCircleContainer>
-                  <FeatureText>
-                    <h3>Share with your network</h3>
-                    <p>Fast and simple to engage with investors</p>
-                  </FeatureText>
-                </FeatureItemContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage3 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Share with your network</h3>
+                <p>Fast and simple to engage with investors</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-                <FeatureItemContainer>
-                  <FeatureImageCircleContainer>
-                    <FeatureImage4 />
-                  </FeatureImageCircleContainer>
-                  <FeatureText>
-                    <h3>Secure dataroom</h3>
-                    <p>Easy to set up and manage permissions</p>
-                  </FeatureText>
-                </FeatureItemContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage4 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Secure dataroom</h3>
+                <p>Easy to set up and manage permissions</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-                <FeatureItemContainer className='penultimate-feature-item-container'>
-                  <FeatureImageCircleContainer>
-                    <FeatureImage5 />
-                  </FeatureImageCircleContainer>
-                  <FeatureText>
-                    <h3>Gain feedback and insight</h3>
-                    <p>Monitor engagement levels</p>
-                  </FeatureText>
-                </FeatureItemContainer>
+            <FeatureItemContainer className='penultimate-feature-item-container'>
+              <FeatureImageCircleContainer>
+                <FeatureImage5 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Gain feedback and insight</h3>
+                <p>Monitor engagement levels</p>
+              </FeatureText>
+            </FeatureItemContainer>
 
-                <FeatureItemContainer>
-                  <FeatureImageCircleContainer>
-                    <FeatureImage6 />
-                  </FeatureImageCircleContainer>
-                  <FeatureText>
-                    <h3>Track interests</h3>
-                    <p>Instant status updates</p>
-                  </FeatureText>
-                </FeatureItemContainer>
-              </TwoFeaturesPerRowFacilitator>
-            </SectionContainer>
+            <FeatureItemContainer>
+              <FeatureImageCircleContainer>
+                <FeatureImage6 />
+              </FeatureImageCircleContainer>
+              <FeatureText>
+                <h3>Track interests</h3>
+                <p>Instant status updates</p>
+              </FeatureText>
+            </FeatureItemContainer>
+          </TwoFeaturesPerRowFacilitator>
+        </SectionContainer>
 
-            {/* LAST SECTION */}
+        {/* LAST SECTION */}
 
-            <SectionContainer className='last-section'>
-              <Header as='h3'>Get started on a 1 month free trial</Header>
-              <p style={{ fontWeight: 'bold' }}>
-                After that, it is £50 + VAT per month and you can cancel anytime
-              </p>
-              <Button
-                href={signUpLink}
-                className='full-width-on-mobile free-trial-button centered-button-always larger-padding'
-              >
-                Start your free trial
-              </Button>
-              <a
-                className='privacy-link'
-                href='/privacy-cookie-policy'
-                target='_blank'
-              >
-                Cookie and Privacy policies
-              </a>
-            </SectionContainer>
-          </MainContainer>
-        </>
+        <SectionContainer className='last-section'>
+          <Header as='h3'>Get started on a 1 month free trial</Header>
+          <p style={{ fontWeight: 'bold' }}>
+            After that, it is £50 + VAT per month and you can cancel anytime
+          </p>
+          <Button
+            href={signUpLink}
+            className='full-width-on-mobile free-trial-button centered-button-always larger-padding'
+          >
+            Start your free trial
+          </Button>
+          <a
+            className='privacy-link'
+            href='/privacy-cookie-policy'
+            target='_blank'
+          >
+            Cookie and Privacy policies
+          </a>
+        </SectionContainer>
+      </MainContainer>
+      {/* </>
       ) : (
         loaded && (
           <PasswordWall
@@ -245,7 +245,7 @@ export default function Home() {
             }}
           />
         )
-      )}
+      )} */}
     </>
   );
 }
