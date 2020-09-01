@@ -177,6 +177,10 @@ export default function privacyCookiePolicy() {
           href='https://fonts.googleapis.com/css2?family=Nunito&display=swap'
           rel='stylesheet'
         ></link>
+        <script
+          src='//rum-static.pingdom.net/pa-5f48cd1bf07a4c0013000152.js'
+          async
+        ></script>
       </Head>
 
       <PrivacyCookiePolicyStyle id='top'>

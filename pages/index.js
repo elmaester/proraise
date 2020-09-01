@@ -33,24 +33,22 @@ import {
   Anchor,
 } from '../style';
 
-// import PasswordWall from '../components/PasswordWall';
-// import { reactLocalStorage } from 'reactjs-localstorage';
+import Maintenance from '../components/Maintenance';
 
 export default function Home() {
   const [scrollPosition, setScrollPosition] = React.useState(0);
-  // const [authenticated, setAuthenticated] = React.useState(false);
-  // const [loaded, setLoaded] = React.useState(false);
-  // React.useEffect(() => {
-  //   if (reactLocalStorage.get('authenticated')) setAuthenticated(true);
-  //   setLoaded(true);
-  // });
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollPosition(currPos.y);
   });
+
   const signUpLink = 'https://go.proraise.co/register/founders';
   const logInLink = 'https://go.proraise.co';
 
-  return (
+  const inMaintenance = false;
+
+  return inMaintenance ? (
+    <Maintenance />
+  ) : (
     <>
       <GlobalStyle />
       <Head>
@@ -60,10 +58,12 @@ export default function Home() {
           href='https://fonts.googleapis.com/css2?family=Nunito&display=swap'
           rel='stylesheet'
         />
+        <script
+          src='//rum-static.pingdom.net/pa-5f48cd1bf07a4c0013000152.js'
+          async
+        ></script>
       </Head>
 
-      {/* {authenticated ? (
-        <> */}
       <NavBar className={scrollPosition < -20 && 'shadow-activated'}>
         <LogoContainer href='#top'>
           <img src='/images/logo.png' />
@@ -235,17 +235,6 @@ export default function Home() {
           </a>
         </SectionContainer>
       </MainContainer>
-      {/* </>
-      ) : (
-        loaded && (
-          <PasswordWall
-            success={() => {
-              setAuthenticated(true);
-              reactLocalStorage.set('authenticated', true);
-            }}
-          />
-        )
-      )} */}
     </>
   );
 }
