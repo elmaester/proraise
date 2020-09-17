@@ -2,15 +2,15 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 const TermsOfUse = () => {
   return (
     <>
-      <div class='legal-page__content'>
+      <div className='legal-page__content'>
         <div>
-          <h1 class='legal-page__content--title'>(the "Agreement")</h1>{' '}
+          <h1 className='legal-page__content--title'>(the "Agreement")</h1>{' '}
           <div id='info'>
             This platform is operated by the Hub Exchange Limited. By
             registering as a new member, you agree to this Agreement.
           </div>
         </div>{' '}
-        <div class='table_of_content'>Table of Contents</div>{' '}
+        <div className='table_of_content'>Table of Contents</div>{' '}
         <div>
           <p>Version last updated: 17/04/2019</p>
           <h1>Section 1: Terms applicable to all users of the Platform</h1>

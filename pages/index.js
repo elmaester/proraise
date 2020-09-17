@@ -59,6 +59,24 @@ export default function Home() {
           rel='stylesheet'
         />
         <script
+          dangerouslySetInnerHTML={{
+            __html: '<!-- Global site tag (gtag.js) - Google Analytics --> */',
+          }}
+        />
+        <script
+          async
+          src='https://www.googletagmanager.com/gtag/js?id=UA-178107806-1'
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-178107806-1');`,
+          }}
+        ></script>
+        <script
           src='//rum-static.pingdom.net/pa-5f48cd1bf07a4c0013000152.js'
           async
         ></script>

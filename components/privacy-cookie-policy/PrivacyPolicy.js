@@ -4,8 +4,8 @@ import { Divider, offsetValue } from '../../pages/privacy-cookie-policy';
 const PrivacyPolicy = () => {
   return (
     <>
-      <div class='legal-page__content'>
-        <h1 class='legal-page__content--title'>Privacy Policy</h1>
+      <div className='legal-page__content'>
+        <h1 className='legal-page__content--title'>Privacy Policy</h1>
         <div id='info'>
           This platform is operated by the Hub Exchange Limited. By registering
           as a new member, you agree to this Agreement.

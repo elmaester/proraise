@@ -178,6 +178,24 @@ export default function privacyCookiePolicy() {
           rel='stylesheet'
         ></link>
         <script
+          dangerouslySetInnerHTML={{
+            __html: '<!-- Global site tag (gtag.js) - Google Analytics --> */',
+          }}
+        />
+        <script
+          async
+          src='https://www.googletagmanager.com/gtag/js?id=UA-178107806-1'
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'UA-178107806-1');`,
+          }}
+        ></script>
+        <script
           src='//rum-static.pingdom.net/pa-5f48cd1bf07a4c0013000152.js'
           async
         ></script>
@@ -185,6 +203,7 @@ export default function privacyCookiePolicy() {
 
       <PrivacyCookiePolicyStyle id='top'>
         <LogoContainer
+          as='div'
           style={{
             paddingTop: '20px',
             display: 'flex',
@@ -196,7 +215,7 @@ export default function privacyCookiePolicy() {
         </LogoContainer>
         <PageTitle>Privacy and Cookie Policies</PageTitle>
         <div className='nav-container'>
-          <div class='legal-page__navigation'>
+          <div className='legal-page__navigation'>
             <div
               className={`item${
                 selectedTab === 'Privacy Policy' ? ' selected' : ''
