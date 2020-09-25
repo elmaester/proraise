@@ -97,7 +97,16 @@ export default function Home() {
           <NavItem as='a' href={logInLink} className='login-button'>
             Login
           </NavItem>
-          <Button href={signUpLink} style={{ letterSpacing: 'normal' }}>
+          <Button
+            href={signUpLink}
+            style={{ letterSpacing: 'normal' }}
+            onClick={() => {
+              gtag('event', 'Click sign-up', {
+                event_category: 'registration',
+                event_label: 'Click sign-up',
+              });
+            }}
+          >
             Sign up
           </Button>
         </div>
