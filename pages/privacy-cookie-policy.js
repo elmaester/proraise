@@ -171,6 +171,25 @@ export default function privacyCookiePolicy() {
     <>
       <GlobalStyle />
       <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: '<!-- Google Tag Manager -->',
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-N83FPLZ');`,
+          }}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: '<!-- End Google Tag Manager -->',
+          }}
+        />
         <title>ProRaise{` - ${selectedTab}`}</title>
         <link rel='icon' href='/favicon.ico' />
         <link
@@ -178,28 +197,27 @@ export default function privacyCookiePolicy() {
           rel='stylesheet'
         ></link>
         <script
-          dangerouslySetInnerHTML={{
-            __html: '<!-- Global site tag (gtag.js) - Google Analytics --> */',
-          }}
-        />
-        <script
-          async
-          src='https://www.googletagmanager.com/gtag/js?id=UA-178107806-1'
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          
-          gtag('config', 'UA-178107806-1');`,
-          }}
-        ></script>
-        <script
           src='//rum-static.pingdom.net/pa-5f48cd1bf07a4c0013000152.js'
           async
         ></script>
       </Head>
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: '<!-- Google Tag Manager (noscript) -->',
+        }}
+      />
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N83FPLZ"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      ></noscript>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: '<!-- End Google Tag Manager (noscript) -->',
+        }}
+      />
 
       <PrivacyCookiePolicyStyle id='top'>
         <LogoContainer
